@@ -1,5 +1,4 @@
-
-        // Quiz data - extracted from the PDF
+     // Quiz data - extracted from the PDF
         const quizData = [
             // Page 1
             {
@@ -4863,7 +4862,7 @@
         const startBtn = document.getElementById('start-btn');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
-        const submitBtn = document.getElementById('submit-btn');
+        const finishBtn = document.getElementById('finish-btn');
         const restartBtn = document.getElementById('restart-btn');
         const reviewBtn = document.getElementById('review-btn');
         const questionText = document.getElementById('question-text');
@@ -4871,7 +4870,6 @@
         const currentQuestionEl = document.getElementById('current-question');
         const totalQuestionsEl = document.getElementById('total-questions');
         const progressBar = document.getElementById('progress');
-        const feedbackEl = document.getElementById('feedback');
         const finalScoreEl = document.getElementById('final-score');
         const correctCountEl = document.getElementById('correct-count');
         const incorrectCountEl = document.getElementById('incorrect-count');
@@ -4881,7 +4879,7 @@
         startBtn.addEventListener('click', startQuiz);
         prevBtn.addEventListener('click', showPreviousQuestion);
         nextBtn.addEventListener('click', showNextQuestion);
-        submitBtn.addEventListener('click', submitAnswer);
+        finishBtn.addEventListener('click', showResults);
         restartBtn.addEventListener('click', restartQuiz);
         reviewBtn.addEventListener('click', reviewAnswers);
 
@@ -4980,6 +4978,11 @@
                 // Check if this option was previously selected
                 if (userAnswers[currentQuestionIndex] === index) {
                     optionElement.classList.add('selected');
+                    
+                    // If answer was already submitted, show feedback
+                    if (userAnswers[currentQuestionIndex] !== null) {
+                        showFeedback(question, index);
+                    }
                 }
                 
                 optionElement.addEventListener('click', selectOption);
@@ -4990,23 +4993,24 @@
             prevBtn.disabled = currentQuestionIndex === 0;
             nextBtn.disabled = currentQuestionIndex === filteredQuestions.length - 1;
             
-            // Show/hide submit button
+            // Show/hide finish button
             if (currentQuestionIndex === filteredQuestions.length - 1) {
-                submitBtn.classList.remove('hidden');
+                finishBtn.classList.remove('hidden');
                 nextBtn.classList.add('hidden');
             } else {
-                submitBtn.classList.add('hidden');
+                finishBtn.classList.add('hidden');
                 nextBtn.classList.remove('hidden');
             }
             
-            // Hide feedback
-            feedbackEl.classList.add('hidden');
+            // Update progress bar
+            updateProgressBar();
         }
 
         // Select an option
         function selectOption(e) {
             const selectedOption = e.currentTarget;
             const optionIndex = parseInt(selectedOption.dataset.index);
+            const question = filteredQuestions[currentQuestionIndex];
             
             // Remove selected class from all options
             document.querySelectorAll('.option').forEach(option => {
@@ -5018,6 +5022,28 @@
             
             // Store user's answer
             userAnswers[currentQuestionIndex] = optionIndex;
+            
+            // Show immediate feedback
+            showFeedback(question, optionIndex);
+        }
+
+        // Show immediate feedback
+        function showFeedback(question, selectedIndex) {
+            const isCorrect = selectedIndex === question.correctAnswer;
+            
+            // Highlight correct and incorrect answers
+            document.querySelectorAll('.option').forEach((option, index) => {
+                if (index === question.correctAnswer) {
+                    option.classList.add('correct');
+                } else if (index === selectedIndex && !isCorrect) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            // Disable further selection
+            document.querySelectorAll('.option').forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
         }
 
         // Show previous question
@@ -5033,58 +5059,6 @@
             if (currentQuestionIndex < filteredQuestions.length - 1) {
                 currentQuestionIndex++;
                 showQuestion();
-            }
-        }
-
-        // Submit answer and show feedback
-        function submitAnswer() {
-            const question = filteredQuestions[currentQuestionIndex];
-            const selectedOptionIndex = userAnswers[currentQuestionIndex];
-            
-            if (selectedOptionIndex === null) {
-                alert('Please select an answer before submitting.');
-                return;
-            }
-            
-            // Show feedback
-            const isCorrect = selectedOptionIndex === question.correctAnswer;
-            const feedbackClass = isCorrect ? 'correct' : 'incorrect';
-            const feedbackText = isCorrect 
-                ? 'Correct! Well done.' 
-                : `Incorrect. The correct answer is: ${question.options[question.correctAnswer]}`;
-            
-            feedbackEl.className = `feedback ${feedbackClass}`;
-            feedbackEl.innerHTML = `
-                <strong>${isCorrect ? 'Correct!' : 'Incorrect'}</strong>
-                <p>${feedbackText}</p>
-            `;
-            feedbackEl.classList.remove('hidden');
-            
-            // Highlight correct and incorrect answers
-            document.querySelectorAll('.option').forEach((option, index) => {
-                if (index === question.correctAnswer) {
-                    option.classList.add('correct');
-                } else if (index === selectedOptionIndex && !isCorrect) {
-                    option.classList.add('incorrect');
-                }
-            });
-            
-            // Disable further selection
-            document.querySelectorAll('.option').forEach(option => {
-                option.style.pointerEvents = 'none';
-            });
-            
-            // Update progress bar
-            updateProgressBar();
-            
-            // Auto-advance after a delay if not the last question
-            if (currentQuestionIndex < filteredQuestions.length - 1) {
-                setTimeout(() => {
-                    currentQuestionIndex++;
-                    showQuestion();
-                }, 2000);
-            } else {
-                setTimeout(showResults, 2000);
             }
         }
 
