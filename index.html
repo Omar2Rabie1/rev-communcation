@@ -3,53 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Systems Quiz</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Optical Communication Quiz</title>
+      <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Embedded Systems Quiz</h1>
-            <p>Test your knowledge of embedded systems concepts</p>
+            <h1>Optical Communication Quiz</h1>
+            <p class="subtitle">Test your knowledge of communication systems and optical networks</p>
         </header>
-
-        <div class="lecture-selector">
-            <button class="lecture-btn active" data-lecture="1">Lecture 1</button>
-            <button class="lecture-btn" data-lecture="2">Lecture 2</button>
-            <button class="lecture-btn" data-lecture="3">Lecture 3</button>
-            <button class="lecture-btn" data-lecture="4">Lecture 4</button>
-            <button class="lecture-btn" data-lecture="5">Lecture 5</button>
-            <button class="lecture-btn" data-lecture="6">Lecture 6</button>
-            <button class="lecture-btn" data-lecture="7">Lecture 7</button>
+        
+        <div id="start-screen" class="quiz-container">
+            <h2>Welcome to the Optical Communication Quiz</h2>
+            <p>This quiz contains multiple-choice and true/false questions covering various topics in optical communication systems.</p>
+            <p>Select the categories you'd like to focus on:</p>
+            
+            <div class="category-selector">
+                <div class="category-btn active" data-category="all">All Categories</div>
+                <div class="category-btn" data-category="basics">Communication Basics</div>
+                <div class="category-btn" data-category="signals">Signals & Encoding</div>
+                <div class="category-btn" data-category="fiber">Fiber Optics</div>
+                <div class="category-btn" data-category="wdm">WDM Systems</div>
+                <div class="category-btn" data-category="networks">Optical Networks</div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="start-btn" class="btn-primary">Start Quiz</button>
+            </div>
         </div>
-
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
+        
+        <div id="quiz-screen" class="quiz-container hidden">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            
+            <div class="question-counter">
+                Question <span id="current-question">1</span> of <span id="total-questions">0</span>
+            </div>
+            
+            <div class="question" id="question-text"></div>
+            
+            <div class="options" id="options-container"></div>
+            
+            <div class="navigation">
+                <button id="prev-btn" class="btn-secondary">Previous</button>
+                <button id="next-btn" class="btn-primary">Next</button>
+                <button id="submit-btn" class="btn-success hidden">Submit Answer</button>
+            </div>
+            
+            <div id="feedback" class="feedback hidden"></div>
         </div>
-
-        <div class="timer" id="timer">Time: 00:00</div>
-
-        <div class="quiz-container" id="quiz-container">
-            <!-- Questions will be dynamically inserted here -->
+        
+        <div id="results-screen" class="quiz-container hidden">
+            <div class="results-container">
+                <h2>Quiz Completed!</h2>
+                <p>Your final score:</p>
+                <div class="score" id="final-score">0%</div>
+                
+                <div class="score-details">
+                    <div class="score-box correct-answers">
+                        <div class="score-value" id="correct-count">0</div>
+                        <div>Correct Answers</div>
+                    </div>
+                    <div class="score-box incorrect-answers">
+                        <div class="score-value" id="incorrect-count">0</div>
+                        <div>Incorrect Answers</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <button id="restart-btn" class="btn-primary">Restart Quiz</button>
+                    <button id="review-btn" class="btn-secondary">Review Answers</button>
+                </div>
+            </div>
         </div>
-
-        <div class="navigation">
-            <button class="nav-btn" id="prev-btn" disabled>Previous</button>
-            <button class="nav-btn" id="next-btn">Next</button>
-            <button class="nav-btn submit-btn" id="submit-btn">Submit Quiz</button>
-        </div>
-
-        <div class="results-container" id="results-container" style="display: none;">
-            <h2>Quiz Results</h2>
-            <div class="score" id="score">0/0</div>
-            <div class="score-percentage" id="percentage">0%</div>
-            <button class="restart-btn" id="restart-btn">Take Another Quiz</button>
-        </div>
-
-        <footer>
-            <p>Embedded Systems Quiz App &copy; 2023</p>
-        </footer>
     </div>
-      <script src="./js/script.js"></script>
+
+<script src="./js/main.js"></script>
 </body>
 </html>
