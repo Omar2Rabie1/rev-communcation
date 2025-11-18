@@ -1,929 +1,5138 @@
-     // Quiz data structure
-        const quizData = {
-            "1": [
-                {
-                    question: "An embedded system is designed to perform:",
-                    options: [
-                        "Many different functions",
-                        "A specific function",
-                        "General computing tasks",
-                        "Only input operations"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "The three things an embedded system is a combination of are:",
-                    options: [
-                        "Processor, Memory, I/O",
-                        "Hardware, Software, and Mechanical Components",
-                        "SB, SoC, and IC",
-                        "GPU, DSP, and CPU"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: An embedded system is designed to do many tasks simultaneously, like a laptop.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "In a washing machine, the motor and water control valves are examples of:",
-                    options: [
-                        "Hardware",
-                        "Software",
-                        "Mechanical Components",
-                        "Firmware"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "In a washing machine, the chip that holds the code for monitoring operations is the:",
-                    options: [
-                        "Hardware",
-                        "Software (Firmware)",
-                        "Mechanical Component",
-                        "System Board"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "The 'Control Unit' of an embedded system typically consists of:",
-                    options: [
-                        "Buttons and Display",
-                        "Processor, RAM, and ROM (with Software)",
-                        "Motor and Chassis",
-                        "Breadboard and Wires"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "In an Air Conditioner, the software monitors the external temperature through:",
-                    options: [
-                        "The Remote",
-                        "The Buzzer",
-                        "Infrared Sensors",
-                        "The Motor"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "True or False: An embedded system will always have a chip (microprocessor or microcontroller) that holds the software.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "Embedded systems are described as having:",
-                    options: [
-                        "Generic hardware and software",
-                        "Specialized hardware and software",
-                        "No hardware",
-                        "No software"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "What are the three main components of any computing system?",
-                    options: [
-                        "Hardware, Software, Mechanical",
-                        "Processor, Memory, I/O",
-                        "SB, SoC, VLSI",
-                        "CPU, GPU, DSP"
-                    ],
-                    answer: 1
-                }
-            ],
-            "2": [
-                {
-                    question: "What does 'MP' represent?",
-                    options: [
-                        "Memory",
-                        "CPU (Primary Processor)",
-                        "Secondary Processors",
-                        "I/O"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: The components inside an MP (Microprocessor) include the ALU, CU, and RF.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "Which component is specified for handling complex computations like Fourier transform to reduce the load on the primary processor?",
-                    options: [
-                        "ALU",
-                        "CU",
-                        "DSP",
-                        "GPU"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "A system integrating MP, Memory, I/O, GPU, and DSP on a single chip is known as:",
-                    options: [
-                        "System on Chip (SoC)",
-                        "Microcontroller (MCU)",
-                        "Electrical Control Unit (ECU)",
-                        "Arithmetic and Logic Unit (ALU)"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "True or False: According to the lecture, a System on Chip (SoC) is considered a high-performance MCU (Microcontroller).",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "Which type of software application does an SoC (System on Chip) typically deal with, according to the presentation?",
-                    options: [
-                        "BareMetal SW",
-                        "OS Applications",
-                        "Only Drivers",
-                        "Only the Kernel"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "Which of the following is given as an example of an OS Application (Non-BareMetal SW)?",
-                    options: [
-                        "Arduino",
-                        "Embedded Linux",
-                        "SCADA",
-                        "Digital Telephone Keypads"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "How is an ECU (Electrical Control Unit) defined in the lecture?",
-                    options: [
-                        "A Kit (like Arduino) combined with Sensors & Actuators",
-                        "A standalone System on Chip (SoC)",
-                        "A Microprocessor (MP) and Memory",
-                        "A device that only converts physical events to electrical signals"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "What is the primary function of a Sensor?",
-                    options: [
-                        "Convert electrical signals into physical events",
-                        "Convert physical events into electrical signals",
-                        "Take input from the system and give output to the environment",
-                        "Examples include motors and heaters"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: An actuator takes input from the system and gives output to the environment.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                }
-            ],
-            "3": [
-                {
-                    question: "Which of the following is categorized under 'Consumer Electronics' as an application of embedded systems?",
-                    options: [
-                        "Washing machine",
-                        "Camcorder",
-                        "Network router",
-                        "Fire alarm"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "Washing machines and refrigerators are given as examples of embedded systems in which application area?",
-                    options: [
-                        "Consumer Electronics",
-                        "Home Automation",
-                        "Household Appliances",
-                        "Automotive Industry"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "In the automotive industry context, what does 'ABS' stand for?",
-                    options: [
-                        "Advanced Braking System",
-                        "Anti-lock Braking System",
-                        "Automated Bypass System",
-                        "Auxiliary Braking Sensor"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: The Anti-lock Braking System (ABS) works by using wheel speed sensors and an Electronic Control Unit (ECU).",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "Fire alarms, air conditioners, and sprinklers are listed as examples in which application category?",
-                    options: [
-                        "Healthcare",
-                        "Telecom",
-                        "Home automation & security systems",
-                        "Computer peripherals"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "True or False: Cellular phones and telephone switches are classified as applications in the 'Telecom' domain.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "EEG and ECG machines are examples of embedded systems used in which field?",
-                    options: [
-                        "Banking & Retail",
-                        "Healthcare",
-                        "Consumer Electronics",
-                        "Automotive Industry"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "All of the following are listed as primary purposes of embedded systems EXCEPT:",
-                    options: [
-                        "Data Collection/Storage/Representation",
-                        "Control",
-                        "Data (Signal) Processing",
-                        "Automotive Industry"
-                    ],
-                    answer: 3
-                },
-                {
-                    question: "True or False: According to the lecture, the 'Data Collection' purpose only involves acquiring digital data, not analog data.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "Network hubs, routers, and switches are typical examples of embedded systems dedicated to what purpose?",
-                    options: [
-                        "Monitoring",
-                        "Data Communication",
-                        "Control",
-                        "Data (Signal) Processing"
-                    ],
-                    answer: 1
-                }
-            ],
-            "4": [
-                {
-                    question: "True or False: The 'Specification' is generally less precise than the 'Requirements'.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "The 'Specification' serves as the contract between:",
-                    options: [
-                        "The hardware team and the software team",
-                        "The customer and the architects",
-                        "The professor and the student",
-                        "The CPU and the Memory"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: The 'Specification' must be understandable so that it can meet the customer's requirements.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "According to the lecture, all of the following are components of a GPS system's specification EXCEPT:",
-                    options: [
-                        "Map data",
-                        "User interface",
-                        "Manufacturing cost",
-                        "Data received from GPS satellite"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "True or False: 'Background actions required to keep the system running' are considered part of the GPS specification.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "The 'Architecture design' step is concerned with defining:",
-                    options: [
-                        "Only hardware components",
-                        "Only software components",
-                        "Hardware and software components",
-                        "Only the user interface"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "CPUs and peripherals are examples of which type of architectural component?",
-                    options: [
-                        "Software components",
-                        "Hardware components",
-                        "Non-functional components",
-                        "Specification components"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: Major data structures are considered a hardware component in the architecture design.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: The architecture design must account for both functional and non-functional specifications.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "In the GPS moving map block diagram, which component is responsible for finding relevant data from the map database?",
-                    options: [
-                        "GPS Receiver",
-                        "Renderer",
-                        "Search Engine",
-                        "Display"
-                    ],
-                    answer: 2
-                }
-            ],
-            "5": [
-                {
-                    question: "What does 'RF' stand for in the context of a processor's components?",
-                    options: [
-                        "Random File",
-                        "Register Files",
-                        "Read-Only File",
-                        "Repeater Function"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: The Program Counter (PC) is a register located inside the Control Unit (CU).",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "How does the Program Counter (PC) know its first (initial) location?",
-                    options: [
-                        "Using the ALU",
-                        "Using the startup code",
-                        "It always starts at 0",
-                        "It is set by the Instruction Register"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: C Code is compiled directly into Machine Language (0s and 1s) in one step.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "The final Machine Language (set of instructions) is shown to be stored in:",
-                    options: [
-                        "ROM",
-                        "ALU",
-                        "CU",
-                        "RF"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "A program counter is a special register that contains the memory address of the:",
-                    options: [
-                        "Current instruction being executed",
-                        "Next program instruction to be executed",
-                        "Previous instruction that was executed",
-                        "First instruction in the entire program"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "In the detailed CPU diagram (Slide 7), what does 'IR' stand for?",
-                    options: [
-                        "Instruction Register",
-                        "Internal RAM",
-                        "Interrupt Request",
-                        "Instruction ROM"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "In the detailed CPU diagram (Slide 7), what does 'MAR' stand for?",
-                    options: [
-                        "Memory Access Register",
-                        "Memory Address Register",
-                        "Main ALU Register",
-                        "Micro-operation Register"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: Before the CPU fetches an instruction, it references the Program Counter for the correct memory address.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "The CPU increases the Program Counter (PC):",
-                    options: [
-                        "Before it fetches the instruction",
-                        "After it fetches the instruction",
-                        "After it decodes the instruction",
-                        "After it executes the instruction"
-                    ],
-                    answer: 1
-                }
-            ],
-            "6": [
-                {
-                    question: "What are the two primary types of register files mentioned?",
-                    options: [
-                        "ALU Registers and CU Registers",
-                        "General Purpose Registers (GPR) and Special Purpose Registers (SPR)",
-                        "Data Registers and Address Registers",
-                        "ROM Registers and RAM Registers"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: General Purpose Registers (GPRs) are used to store data permanently.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "In C language, what is the intended effect of using the register keyword before a variable?",
-                    options: [
-                        "To store the variable in RAM permanently",
-                        "To suggest storing the variable in a GPR for faster access",
-                        "To convert the variable into a Special Purpose Register",
-                        "To guarantee the variable is stored in the Program Counter"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "True or False: Using the register keyword in C guarantees that the variable will be stored in a GPR.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "Which Special Purpose Register holds the memory address of the next instruction to be executed?",
-                    options: [
-                        "Stack Pointer (SP)",
-                        "Instruction Register (IR)",
-                        "Program Counter (PC)",
-                        "Accumulator (ACC)"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "What is the primary function of the Stack Pointer (SP)?",
-                    options: [
-                        "To store the memory address of the last data element added to the stack",
-                        "To store the result of the last ALU operation",
-                        "To store the current instruction being decoded",
-                        "To hold all the GPRs"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "The stack is a specific region of memory that stores temporary data in what manner?",
-                    options: [
-                        "FIFO (First In, First Out)",
-                        "LIFO (Last In, First Out)",
-                        "Random Access",
-                        "FILO (First In, Last Out)"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "Which register stores the instruction after it has been fetched from memory?",
-                    options: [
-                        "Program Counter (PC)",
-                        "Process Status Word (PSW)",
-                        "Accumulator (ACC)",
-                        "Instruction Register (IR)"
-                    ],
-                    answer: 3
-                },
-                {
-                    question: "True or False: The Accumulator (ACC) is a register that is unavailable or uncommon in modern microprocessors.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "What is the Process Status Word (PSW)?",
-                    options: [
-                        "A register that stores the next instruction's address",
-                        "A register that temporarily stores data for the ALU",
-                        "A set of flags where each bit has a specific function",
-                        "A register that holds the instruction fetched from memory"
-                    ],
-                    answer: 2
-                }
-            ],
-            "7": [
-                {
-                    question: "What term is used to describe the action of reading or writing from memory?",
-                    options: [
-                        "Access the memory",
-                        "Bus the memory",
-                        "Port the memory",
-                        "Control the memory"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "True or False: Read (r) access time is bigger (longer) than write (w) access time.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "A single bit in memory is constructed from which electronic component?",
-                    options: [
-                        "A capacitor",
-                        "A resistor",
-                        "A D-flip-flop",
-                        "A MOSFET"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "How many D-flip-flops are required to construct one 8-bit register?",
-                    options: [
-                        "1",
-                        "4",
-                        "8",
-                        "16"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "What three components make up the 'Bus Set' used to connect the CPU and Memory?",
-                    options: [
-                        "Data bus, Address bus, & Control bus",
-                        "SRAM bus, DRAM bus, & ROM bus",
-                        "Read bus, Write bus, & Access bus",
-                        "Port A, Port B, & Port C"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "Which bus determines the location in memory that the processor will read from or write to?",
-                    options: [
-                        "Data bus",
-                        "Control bus",
-                        "System bus",
-                        "Address bus"
-                    ],
-                    answer: 3
-                },
-                {
-                    question: "Which bus contains the contents (data) that have been read from memory or are to be written to memory?",
-                    options: [
-                        "Data bus",
-                        "Address bus",
-                        "Control bus",
-                        "I/O bus"
-                    ],
-                    answer: 0
-                },
-                {
-                    question: "Which bus manages the information flow and indicates whether an operation is a 'read' or a 'write'?",
-                    options: [
-                        "Data bus",
-                        "Address bus",
-                        "Control bus",
-                        "System bus"
-                    ],
-                    answer: 2
-                },
-                {
-                    question: "True or False: The term '32-bit pc' or '64-bit pc' refers to the number of wires in the control bus.",
-                    options: [
-                        "True",
-                        "False"
-                    ],
-                    answer: 1
-                },
-                {
-                    question: "In the example of a 'write' operation, the Address Bus holds '3001' and the Data Bus holds '111'. What does the Control Bus hold to indicate 'write'?",
-                    options: [
-                        "0",
-                        "1",
-                        "3001",
-                        "111"
-                    ],
-                    answer: 1
-                }
-            ]
-        };
 
-        // App state
-        let currentLecture = "1";
-        let currentQuestion = 0;
-        let userAnswers = {};
-        let quizStarted = false;
-        let timerInterval;
-        let timeElapsed = 0;
+        // Quiz data - extracted from the PDF
+        const quizData = [
+            // Page 1
+            {
+                id: 1,
+                question: "What is the basic process of exchanging information from one location to another called?",
+                options: ["Transmission", "Communication", "Reception", "Encoding"],
+                correctAnswer: 1,
+                category: "basics"
+            },
+            {
+                id: 2,
+                question: "Which of the following is not a component of a communication system?",
+                options: ["Transmitter", "Receiver", "Modulator", "Communication Channel"],
+                correctAnswer: 2,
+                category: "basics"
+            },
+            {
+                id: 3,
+                question: "Communication refers to the process of sending, receiving, and processing information from one point to another.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 4,
+                question: "A transmitter prepares the data to be transmitted in the appropriate format.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 5,
+                question: "What does a source encoder do?",
+                options: [
+                    "Converts analog signals to digital form",
+                    "Maps the signal to remove redundancy",
+                    "Adds noise to the signal",
+                    "None of the above"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 6,
+                question: "Which of the following focuses on error detection and correction?",
+                options: ["Source encoder", "Channel encoder", "Modulator", "Transmitter"],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 7,
+                question: "The source encoder's main focus is on efficient representation of the message.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 8,
+                question: "Channel encoding helps in minimizing noise in the transmitted signal.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 9,
+                question: "Which of the following is an example of a guided communication channel?",
+                options: [
+                    "Optical fiber cables",
+                    "Radio waves",
+                    "Satellite communication",
+                    "Infrared signals"
+                ],
+                correctAnswer: 0,
+                category: "basics"
+            },
+            // Page 2
+            {
+                id: 10,
+                question: "What is a common problem faced by communication systems?",
+                options: ["Noise", "Interference", "Jamming", "All of the above"],
+                correctAnswer: 3,
+                category: "basics"
+            },
+            {
+                id: 11,
+                question: "Interference is due to the superposition of two or more signals.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 12,
+                question: "Jamming is an unintentional interference that affects signal quality.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 13,
+                question: "What is the difference between data and signal?",
+                options: [
+                    "Data is generated by the application, signal is generated by the transmitter",
+                    "Data is the representation of the signal",
+                    "Signal is the information, data is the medium",
+                    "None of the above"
+                ],
+                correctAnswer: 0,
+                category: "basics"
+            },
+            {
+                id: 14,
+                question: "Which combination represents Voice over IP (VoIP)?",
+                options: [
+                    "Analog Data, Analog Signal",
+                    "Analog Data, Digital Signal",
+                    "Digital Data, Analog Signal",
+                    "Digital Data, Digital Signal"
+                ],
+                correctAnswer: 1,
+                category: "basics"
+            },
+            {
+                id: 15,
+                question: "Data are generated from the source, and signals are generated from the transmitter.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 16,
+                question: "Ethernet is an example of Digital Data, Digital Signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 17,
+                question: "Analog Data, Analog Signal: Traditional telephone system.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 18,
+                question: "Analog Data, Digital Signal: Voice over IP (VoIP), digital music streaming.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 19,
+                question: "Digital Data, Analog Signal: Modems (used in early internet connections), Optical networks.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 20,
+                question: "Digital Data, Digital Signal: Ethernet, Wi-Fi, modern computer networks.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 21,
+                question: "What does the amplitude of a sine wave represent?",
+                options: [
+                    "The frequency of the wave",
+                    "The peak value of the wave",
+                    "The period of the wave",
+                    "The phase of the wave"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            // Page 3
+            {
+                id: 22,
+                question: "What is the unit of frequency?",
+                options: ["Seconds", "Hertz", "Meters", "Amperes"],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 23,
+                question: "A sine wave is a fundamental mathematical function that describes a smooth, periodic oscillation.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 24,
+                question: "The period of a wave is the inverse of its frequency.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 25,
+                question: "What is the main focus of channel encoding?",
+                options: [
+                    "Efficient representation of the message",
+                    "Error detection and correction",
+                    "Modulation of the signal",
+                    "Conversion of analog signals to digital form"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 26,
+                question: "Which component is responsible for converting analog voice signals into digital form?",
+                options: ["Source encoder", "Channel encoder", "Modulator", "Transmitter"],
+                correctAnswer: 0,
+                category: "signals"
+            },
+            {
+                id: 27,
+                question: "Channel encoding adds redundancy to help detect and correct errors.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 28,
+                question: "The main focus of source encoding is to minimize noise in the transmitted signal.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 29,
+                question: "What is the period of a wave if its frequency is 50 Hz?",
+                options: ["0.02 seconds", "0.2 seconds", "2 seconds", "20 seconds"],
+                correctAnswer: 0,
+                category: "signals"
+            },
+            {
+                id: 30,
+                question: "Which feature of a sine wave refers to the horizontal shift of the wave?",
+                options: ["Amplitude", "Frequency", "Phase", "Period"],
+                correctAnswer: 2,
+                category: "signals"
+            },
+            {
+                id: 31,
+                question: "Higher amplitude means a stronger or louder signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            // Page 4
+            {
+                id: 32,
+                question: "The period is the time it takes to complete one full cycle of the wave.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 33,
+                question: "What type of signal is used in digital systems to represent binary data?",
+                options: ["Sine wave", "Square wave", "Triangle wave", "Sawtooth wave"],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 34,
+                question: "Which of the following is used to represent analog signals in communication systems?",
+                options: ["Square wave", "Sine wave", "Triangle wave", "Sawtooth wave"],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 35,
+                question: "A square wave quickly switches between high and low values, creating sharp, rectangular steps.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 36,
+                question: "What is the main difference between data and signal?",
+                options: [
+                    "Data is the information to be transmitted, signal is the representation of data",
+                    "Signal is the information to be transmitted, data is the representation of signal",
+                    "Data and signal are the same",
+                    "None of the above"
+                ],
+                correctAnswer: 0,
+                category: "basics"
+            },
+            {
+                id: 37,
+                question: "Which of the following is an example of digital data and digital signal?",
+                options: [
+                    "Traditional telephone system",
+                    "Voice over IP (VoIP)",
+                    "Ethernet",
+                    "Optical networks"
+                ],
+                correctAnswer: 2,
+                category: "basics"
+            },
+            {
+                id: 38,
+                question: "Analog data can be represented by digital signals.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 39,
+                question: "What type of signal maintains a constant level for some period of time and then changes to another constant level?",
+                options: ["Continuous signal", "Discrete signal", "Analog signal", "Digital signal"],
+                correctAnswer: 3,
+                category: "signals"
+            },
+            // Page 5
+            {
+                id: 40,
+                question: "A continuous signal varies in a smooth fashion over time.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 41,
+                question: "A discrete signal is used to represent analog signals in communication systems.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 42,
+                question: "What is the peak value of a sine wave called?",
+                options: ["Frequency", "Amplitude", "Period", "Phase"],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 43,
+                question: "What does the frequency of a sine wave refer to?",
+                options: [
+                    "The peak value of the wave",
+                    "The time it takes to complete one full cycle",
+                    "How many cycles occur per second",
+                    "The horizontal shift of the wave"
+                ],
+                correctAnswer: 2,
+                category: "signals"
+            },
+            {
+                id: 44,
+                question: "Higher amplitude means a stronger or louder signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 45,
+                question: "What is the period of a wave if its frequency is 100 Hz?",
+                options: ["0.01 seconds", "0.1 seconds", "1 second", "10 seconds"],
+                correctAnswer: 0,
+                category: "signals"
+            },
+            {
+                id: 46,
+                question: "Which feature of a sine wave refers to the horizontal shift of the wave?",
+                options: ["Amplitude", "Frequency", "Phase", "Period"],
+                correctAnswer: 2,
+                category: "signals"
+            },
+            {
+                id: 47,
+                question: "Phase differences are crucial in signal modulation and communication.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 48,
+                question: "Which of the following is not a key feature of a sine wave?",
+                options: ["Amplitude", "Frequency", "Phase", "Modulation"],
+                correctAnswer: 3,
+                category: "signals"
+            },
+            {
+                id: 49,
+                question: "A sine wave is used to represent digital signals in communication systems.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            // Page 6
+            {
+                id: 50,
+                question: "What is the main focus of source encoding?",
+                options: [
+                    "Efficient representation of the message",
+                    "Error detection and correction",
+                    "Modulation of the signal",
+                    "Conversion of analog signals to digital form"
+                ],
+                correctAnswer: 0,
+                category: "signals"
+            },
+            {
+                id: 51,
+                question: "Which component is responsible for adding redundancy to help detect and correct errors?",
+                options: ["Source encoder", "Channel encoder", "Modulator", "Transmitter"],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 52,
+                question: "Source encoding focuses on removing unnecessary bits from the signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 53,
+                question: "Which of the following is an example of an unguided communication channel?",
+                options: [
+                    "Optical fiber cables",
+                    "Radio waves",
+                    "Coaxial cables",
+                    "Twisted pair cables"
+                ],
+                correctAnswer: 1,
+                category: "basics"
+            },
+            {
+                id: 54,
+                question: "What is the main purpose of modulation in communication systems?",
+                options: [
+                    "To convert analog signals to digital form",
+                    "To provide efficient transmission of the signal over the channel",
+                    "To add redundancy for error detection",
+                    "To remove noise from the signal"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 55,
+                question: "Modulation can be done by impressing information on the amplitude, phase, or frequency of a sinusoid.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 56,
+                question: "Optical fiber cables are an example of an unguided communication channel.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 57,
+                question: "What is the main problem caused by noise in communication systems?",
+                options: [
+                    "It adds redundancy to the signal",
+                    "It causes undesired effects from the communication environment",
+                    "It helps in error detection and correction",
+                    "It improves the quality of the received signal"
+                ],
+                correctAnswer: 1,
+                category: "basics"
+            },
+            // Page 7
+            {
+                id: 58,
+                question: "Which of the following is an intentional interference that aims at destroying the quality of the transmitted signal?",
+                options: ["Noise", "Interference", "Jamming", "Modulation"],
+                correctAnswer: 2,
+                category: "basics"
+            },
+            {
+                id: 59,
+                question: "Noise is usually not under our control and the system has to deal with it.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 60,
+                question: "Interference is an intentional act to disrupt communication.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 61,
+                question: "What is the spectrum of a signal?",
+                options: [
+                    "The range of frequencies it contains",
+                    "The amplitude of the signal",
+                    "The phase of the signal",
+                    "The range of frequencies it contains"
+                ],
+                correctAnswer: 0,
+                category: "signals"
+            },
+            {
+                id: 62,
+                question: "Which of the following is True about an electromagnetic signal?",
+                options: [
+                    "It is made up of a single frequency",
+                    "It is made up of many frequencies",
+                    "It has no frequency",
+                    "It is always constant"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 63,
+                question: "The spectrum of a signal includes only one frequency.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 64,
+                question: "An electromagnetic signal can be made up of multiple frequencies.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 65,
+                question: "What does Fourier analysis help with?",
+                options: [
+                    "Increasing signal amplitude",
+                    "Breaking down a signal into its constituent frequencies",
+                    "Reducing noise",
+                    "Modulating the signal"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 66,
+                question: "What is a direct current (dc) component in a signal?",
+                options: [
+                    "A high-frequency component",
+                    "A zero-frequency component",
+                    "A variable frequency component",
+                    "A noise component"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            // Page 8
+            {
+                id: 67,
+                question: "Fourier analysis is used to combine signals.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 68,
+                question: "A direct current (dc) component has zero frequency.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 69,
+                question: "What is bandwidth typically measured in?",
+                options: ["Decibels", "Watts", "Hertz", "Volts"],
+                correctAnswer: 2,
+                category: "signals"
+            },
+            {
+                id: 70,
+                question: "In traditional telephone systems, what is the typical bandwidth range?",
+                options: [
+                    "100 Hz to 2000 Hz",
+                    "300 Hz to 3400 Hz",
+                    "500 Hz to 5000 Hz",
+                    "1000 Hz to 10000 Hz"
+                ],
+                correctAnswer: 1,
+                category: "basics"
+            },
+            {
+                id: 71,
+                question: "Bandwidth is the difference between the upper and lower frequencies in a continuous band.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 72,
+                question: "Traditional telephone systems have a bandwidth of 10 kHz.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 73,
+                question: "What is the bandwidth of AM radio stations?",
+                options: ["5 kHz", "10 kHz", "50 kHz", "100 kHz"],
+                correctAnswer: 1,
+                category: "basics"
+            },
+            {
+                id: 74,
+                question: "Which technology uses bandwidths up to several GHz?",
+                options: ["Wi-Fi", "4G", "5G", "Bluetooth"],
+                correctAnswer: 2,
+                category: "basics"
+            },
+            {
+                id: 75,
+                question: "FM radio uses a larger bandwidth than AM radio.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 76,
+                question: "Wi-Fi operates only in the 4 GHz frequency band.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "basics",
+                type: "truefalse"
+            },
+            // Page 9
+            {
+                id: 77,
+                question: "What is the typical bandwidth for FM radio?",
+                options: ["10 kHz", "50 kHz", "200 kHz", "500 kHz"],
+                correctAnswer: 2,
+                category: "basics"
+            },
+            {
+                id: 78,
+                question: "Which frequency bands does Wi-Fi operate in?",
+                options: [
+                    "1 GHz and 2 GHz",
+                    "4 GHz and 5 GHz",
+                    "3 GHz and 4 GHz",
+                    "4 GHz and 5 GHz"
+                ],
+                correctAnswer: 1,
+                category: "basics"
+            },
+            {
+                id: 79,
+                question: "Analog TV signals use bandwidths around 6 MHz.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 80,
+                question: "Digital video signals use less bandwidth than analog TV signals.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 81,
+                question: "What is the bandwidth range for 5G technology?",
+                options: [
+                    "1 GHz to 10 GHz",
+                    "2 GHz to 20 GHz",
+                    "3 GHz to 100 GHz",
+                    "4 GHz to 50 GHz"
+                ],
+                correctAnswer: 2,
+                category: "basics"
+            },
+            {
+                id: 82,
+                question: "What does higher bandwidth in Wi-Fi mean?",
+                options: [
+                    "Slower internet speeds",
+                    "Faster internet speeds",
+                    "More interference",
+                    "Less data transmission"
+                ],
+                correctAnswer: 1,
+                category: "basics"
+            },
+            {
+                id: 83,
+                question: "5G technology can carry massive amounts of data.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 84,
+                question: "Wi-Fi bandwidths typically range from 10 MHz to 100 MHz.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "basics",
+                type: "truefalse"
+            },
+            {
+                id: 85,
+                question: "Modal dispersion occurs in multimode fibers.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 86,
+                question: "Chromatic dispersion affects only multimode fibers.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            // Page 10
+            {
+                id: 87,
+                question: "Dispersion affects the clarity and timing of the signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 88,
+                question: "Dispersion has no impact on data rates.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 89,
+                question: "Attenuation must be considered when determining the maximum distance a signal can propagate.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 90,
+                question: "Attenuation is caused by the fiber material absorbing and scattering light energy.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 91,
+                question: "What is Polarization Mode Dispersion (PMD)?",
+                options: [
+                    "Occurs in multimode fibers",
+                    "Occurs in single-mode fibers",
+                    "Caused by fiber attenuation",
+                    "Caused by chromatic dispersion"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 92,
+                question: "How can PMD be mitigated?",
+                options: [
+                    "Using low-quality fibers",
+                    "Using high-quality fibers or polarization-maintaining fibers",
+                    "Increasing signal power",
+                    "Reducing fiber length"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 93,
+                question: "Polarization Mode Dispersion (PMD): Occurs in single-mode fibers when different polarization states travel at different speeds due to fiber imperfections.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 94,
+                question: "PMD occurs in multimode fibers.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 95,
+                question: "PMD can be mitigated with low-quality fibers.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 96,
+                question: "What causes nonlinearities in fiber?",
+                options: [
+                    "Low light intensity",
+                    "High light intensity",
+                    "Constant light intensity",
+                    "No light intensity"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 97,
+                question: "Four-Wave Mixing (FWM)- Cause: When multiple wavelengths of light interact within the fiber, new wavelengths are generated due to the non-linear mixing of signals.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            // Page 11
+            {
+                id: 98,
+                question: "What is an example of a nonlinearity in fiber?",
+                options: ["Attenuation", "Four-Wave Mixing (FWM)", "Dispersion", "Reflection"],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 99,
+                question: "Nonlinearities in fiber occur at low light intensities.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 100,
+                question: "Four-Wave Mixing (FWM) is a type of dispersion.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 101,
+                question: "What is the function of an optical coupler?",
+                options: [
+                    "To amplify signals",
+                    "To combine or split light signals",
+                    "To filter signals",
+                    "To modulate signals"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 102,
+                question: "What does a splitter (1×N coupler) do?",
+                options: [
+                    "Combines signals from multiple fibers",
+                    "Splits an input signal into multiple output fibers",
+                    "Amplifies the input signal",
+                    "Reduces signal attenuation"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 103,
+                question: "An optical coupler can combine light signals.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 104,
+                question: "A combiner (N×1 coupler) splits an input signal into multiple output fibers.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 105,
+                question: "What does the coupling ratio describe?",
+                options: [
+                    "The signal attenuation in a fiber",
+                    "How the input optical power is divided between output ports",
+                    "The bandwidth of a fiber",
+                    "The dispersion in a fiber"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            // Page 12
+            {
+                id: 106,
+                question: "What is the formula for the coupling ratio in a 1x2 optical coupler?",
+                options: [
+                    "P1/P2",
+                    "P1/(P1+P2)",
+                    "P2/P1",
+                    "P2/(P1+P1)"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 107,
+                question: "The coupling ratio describes the signal attenuation in a fiber.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 108,
+                question: "A Splitter (1×N coupler) takes an input signal from one fiber and splits it into N output fibers.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 109,
+                question: "A Combiner (N×1 coupler) combines optical signals from multiple input fibers into a single output fiber.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 110,
+                question: "How can a 1xN splitter be designed?",
+                options: [
+                    "Using a single 1x2 coupler",
+                    "Using multiple 2x1 couplers",
+                    "Using a single 1x1 coupler",
+                    "Using multiple 1x1 couplers"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 111,
+                question: "What is the purpose of a 2x1 coupler in designing an 8-port splitter?",
+                options: [
+                    "To reduce signal power",
+                    "To combine signals from multiple fibers",
+                    "To split signals into multiple fibers",
+                    "To filter signals"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 112,
+                question: "A 1xN splitter can be designed using multiple 2x1 couplers.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 113,
+                question: "A 2x1 coupler splits signals into multiple fibers.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            // Page 13
+            {
+                id: 114,
+                question: "What is a Passive Star Coupler (PSC)?",
+                options: [
+                    "An active optical device",
+                    "A passive optical device",
+                    "A type of transmitter",
+                    "A type of receiver"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 115,
+                question: "In which type of network are PSCs commonly used?",
+                options: [
+                    "Point-to-point networks",
+                    "Broadcast-and-select networks",
+                    "Ring networks",
+                    "Mesh networks"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 116,
+                question: "Passive Star Couplers require external power to operate.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 117,
+                question: "PSCs are used to split or combine optical signals.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 118,
+                question: "How many output ports does an 8x8 PSC have?",
+                options: ["4", "8", "16", "2"],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 119,
+                question: "An 8x8 PSC has 8 input ports and 8 output ports.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 120,
+                question: "An 8x8 PSC is used to combine signals from 16 inputs.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            // Page 14
+            {
+                id: 121,
+                question: "How many output ports does a 16x16 PSC have?",
+                options: ["4", "8", "16", "2"],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            {
+                id: 122,
+                question: "A 16x16 PSC has 16 input ports and 16 output ports.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 123,
+                question: "A 16x16 PSC is used to combine signals from 8 inputs.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 124,
+                question: "What does the optical power each output receives in a PSC depend on?",
+                options: [
+                    "The number of input ports",
+                    "The number of output ports",
+                    "The type of fiber used",
+                    "The external power supplied"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 125,
+                question: "What is the formula for the optical power each output receives in a PSC?",
+                options: [
+                    "P_out = P_in × N",
+                    "P_out = P_in / N",
+                    "P_out = P_in + N",
+                    "P_out = P_in - N"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 126,
+                question: "The optical power each output receives in a PSC is independent of the number of output ports.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 127,
+                question: "What is the primary function of a transmitter in an optical communication system?",
+                options: [
+                    "To receive optical signals",
+                    "To convert electrical signals into optical signals",
+                    "To amplify optical signals",
+                    "To split optical signals"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            // Page 15
+            {
+                id: 128,
+                question: "Which component is essential for converting electrical signals to optical signals in a transmitter?",
+                options: [
+                    "Optical fiber",
+                    "Light source (e.g., laser diode)",
+                    "Optical coupler",
+                    "Optical amplifier"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 129,
+                question: "Transmitters are used to receive optical signals.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 130,
+                question: "A light source is essential for converting electrical signals to optical signals in a transmitter.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 131,
+                question: "What does the acronym 'laser' stand for?",
+                options: [
+                    "Light Absorption by Stimulated Emission of Radiation",
+                    "Light Amplification by Stimulated Emission of Radiation",
+                    "Light Amplification by Spontaneous Emission of Radiation",
+                    "Light Absorption by Spontaneous Emission of Radiation"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 132,
+                question: "What allows a laser to produce intense high-powered beams of coherent light?",
+                options: [
+                    "Spontaneous emission",
+                    "Stimulated emission",
+                    "Absorption",
+                    "Reflection"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 133,
+                question: "The word 'laser' is an acronym for Light Absorption by Stimulated Emission of Radiation.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 134,
+                question: "Stimulated emission allows a laser to produce intense high-powered beams of coherent light.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 135,
+                question: "What must an atom do to change the level of an electron in the ground state?",
+                options: [
+                    "Emit energy",
+                    "Absorb energy",
+                    "Reflect energy",
+                    "Transmit energy"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            // Page 16
+            {
+                id: 136,
+                question: "What are stable atoms in the ground state characterized by?",
+                options: [
+                    "Electrons in the highest possible energy levels",
+                    "Electrons in the lowest possible energy levels",
+                    "Electrons in quasi-stable states",
+                    "Electrons in excited states"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 137,
+                question: "To change the level of an electron in the ground state, the atom must emit energy.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 138,
+                question: "Stable atoms in the ground state have electrons in the lowest possible energy levels.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 139,
+                question: "What happens when an atom absorbs energy?",
+                options: [
+                    "It becomes stable",
+                    "It becomes excited and moves to a higher energy level",
+                    "It emits a photon",
+                    "It remains in the ground state"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 140,
+                question: "What is a quasi-stable state?",
+                options: [
+                    "A state where the atom is in the ground state",
+                    "A state where the atom can stay excited for longer periods",
+                    "A state where the atom emits energy continuously",
+                    "A state where the atom absorbs energy continuously"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 141,
+                question: "When an atom absorbs energy, it becomes excited and moves to a higher energy level.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 142,
+                question: "In a quasi-stable state, the atom quickly returns to the ground state.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 143,
+                question: "What is population inversion?",
+                options: [
+                    "A state where there are more electrons in the ground state than in the excited state",
+                    "A state where there are more electrons in the excited state than in the ground state",
+                    "A state where all electrons are in the ground state",
+                    "A state where all electrons are in the excited state"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            // Page 17
+            {
+                id: 144,
+                question: "What does population inversion allow a substance to do?",
+                options: [
+                    "Absorb more light than it emits",
+                    "Emit more light than it absorbs",
+                    "Remain in the ground state",
+                    "Remain in the excited state"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 145,
+                question: "Population inversion means there are more electrons in the ground state than in the excited state.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 146,
+                question: "Population inversion allows the substance to emit more light than it absorbs.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 147,
+                question: "What is the lasing medium made of?",
+                options: [
+                    "A stable substance",
+                    "An unstable substance",
+                    "A quasi-stable substance",
+                    "A ground state substance"
+                ],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            {
+                id: 148,
+                question: "What is the role of the lasing medium in a laser?",
+                options: [
+                    "To absorb light",
+                    "To emit coherent light",
+                    "To reflect light",
+                    "To scatter light"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 149,
+                question: "The lasing medium is made of a quasi-stable substance.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 150,
+                question: "The lasing medium absorbs more light than it emits.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 151,
+                question: "What happens when an electron drops back to the ground state in the lasing medium?",
+                options: [
+                    "It absorbs a photon",
+                    "It emits a photon of light",
+                    "It remains in the excited state",
+                    "It splits into two electrons"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            // Page 18
+            {
+                id: 152,
+                question: "What occurs when a photon passes very closely to an excited electron?",
+                options: ["Absorption", "Stimulated emission", "Reflection", "Refraction"],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 153,
+                question: "When an electron drops back to the ground state, it absorbs a photon of light.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 154,
+                question: "Stimulated emission occurs when a photon passes very closely to an excited electron.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 155,
+                question: "What is released when a photon causes an excited electron to return to the ground state?",
+                options: [
+                    "An incoherent photon",
+                    "A coherent photon",
+                    "An electron",
+                    "A proton"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 156,
+                question: "What controls the frequency of the emitted light in a laser?",
+                options: [
+                    "The width of the cavity",
+                    "The length of the cavity",
+                    "The height of the cavity",
+                    "The depth of the cavity"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 157,
+                question: "The length of the cavity controls the frequency of the emitted light.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 158,
+                question: "The process of stimulated emission decreases the intensity of light.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 159,
+                question: "What type of laser is very simple and useful for optical communication?",
+                options: [
+                    "Gas laser",
+                    "Solid-state laser",
+                    "Semiconductor diode laser",
+                    "Dye laser"
+                ],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            {
+                id: 160,
+                question: "How can a semiconductor diode laser be implemented?",
+                options: [
+                    "Using a gas-filled tube",
+                    "Using a p-n junction with mirrored edges",
+                    "Using a liquid dye",
+                    "Using a crystal"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 161,
+                question: "Semiconductor diode lasers are complex and not useful for optical communication.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            // Page 19
+            {
+                id: 162,
+                question: "A semiconductor diode laser can be implemented using a p-n junction with mirrored edges.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 163,
+                question: "What is laser linewidth?",
+                options: [
+                    "The physical width of the laser beam",
+                    "The spectral width of the light generated by the laser",
+                    "The length of the laser cavity",
+                    "The height of the laser beam"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 164,
+                question: "Which of the following is a characteristic of lasers that may affect system performance?",
+                options: [
+                    "Beam height",
+                    "Beam length",
+                    "Frequency instability",
+                    "Beam color"
+                ],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            {
+                id: 165,
+                question: "Laser linewidth is the physical width of the laser beam.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 166,
+                question: "Frequency instability is a characteristic of lasers that may affect system performance.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 167,
+                question: "What are frequency instabilities in lasers?",
+                options: [
+                    "Variations in laser power",
+                    "Variations in laser frequency",
+                    "Variations in laser intensity",
+                    "Variations in laser wavelength"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 168,
+                question: "What is the number of longitudinal modes in a laser?",
+                options: [
+                    "The number of transverse modes",
+                    "The number of wavelengths a laser can amplify",
+                    "The number of photons emitted",
+                    "The number of electrons excited"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 169,
+                question: "Mode hopping is a type of frequency instability.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 170,
+                question: "It is desirable to implement lasers which produce multiple longitudinal modes.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            // Page 20
+            {
+                id: 171,
+                question: "What is a key requirement for transmitters used in Wavelength Division Multiplexing (WDM) networks?",
+                options: [
+                    "High power output",
+                    "Capability to tune to different wavelengths",
+                    "Low power consumption",
+                    "High frequency stability"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 172,
+                question: "What is an important characteristic of tunable lasers?",
+                options: [
+                    "Narrow tuning range",
+                    "Wide and continuous tuning range",
+                    "Slow tuning time",
+                    "Low lifetime"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 173,
+                question: "Tunable lasers in WDM networks need to tune to different wavelengths.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 174,
+                question: "Tunable lasers should have a narrow tuning range.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 175,
+                question: "How do mechanically-tuned lasers achieve tuning?",
+                options: [
+                    "By changing the electrical current",
+                    "By adjusting the distance between mirrors",
+                    "By using sound waves",
+                    "By changing the temperature"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 176,
+                question: "What is a drawback of injection-current-tuned lasers?",
+                options: [
+                    "Slow tuning time",
+                    "Narrow tuning range",
+                    "Mode hopping",
+                    "High power consumption"
+                ],
+                correctAnswer: 2,
+                category: "wdm"
+            },
+            {
+                id: 177,
+                question: "Mechanically-tuned lasers have a slow tuning time.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 178,
+                question: "Acousto-optic-tuned lasers use electrical current for tuning.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            // Page 21
+            {
+                id: 179,
+                question: "What is a laser array?",
+                options: [
+                    "A single laser with multiple wavelengths",
+                    "A set of fixed-tuned lasers integrated into a single component",
+                    "A tunable laser with a wide range",
+                    "A laser with variable power output"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 180,
+                question: "What is a possible drawback of using a laser array?",
+                options: [
+                    "Variable wavelengths",
+                    "Fixed number of wavelengths",
+                    "High power consumption",
+                    "Slow tuning time"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 181,
+                question: "A laser array can contain multiple lasers operating at different wavelengths.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 182,
+                question: "The number of wavelengths in a laser array is variable.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 183,
+                question: "What does optical modulation involve?",
+                options: [
+                    "Altering the properties of electrical signals",
+                    "Altering the properties of light waves",
+                    "Altering the properties of sound waves",
+                    "Altering the properties of magnetic fields"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 184,
+                question: "Which of the following is a common digital modulation technique in optical fiber?",
+                options: [
+                    "Amplitude Modulation (AM)",
+                    "Amplitude Shift Keying (ASK)",
+                    "Frequency Modulation (FM)",
+                    "Phase Modulation (PM)"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 185,
+                question: "Optical modulation is specific to systems that use light waves as the carrier.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 186,
+                question: "Frequency Modulation (FM) is a common digital modulation technique in optical fiber.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            // Page 22
+            {
+                id: 187,
+                question: "What is another name for Amplitude Shift Keying (ASK) in optical communication?",
+                options: [
+                    "Frequency Modulation (FM)",
+                    "Phase Modulation (PM)",
+                    "Intensity Modulation (IM)",
+                    "Pulse Modulation (PM)"
+                ],
+                correctAnswer: 2,
+                category: "signals"
+            },
+            {
+                id: 188,
+                question: "In Intensity Modulation (IM), what does a binary 1 represent?",
+                options: [
+                    "Low intensity (light 'off')",
+                    "High intensity (light 'on')",
+                    "Medium intensity",
+                    "No light"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 189,
+                question: "In Intensity Modulation (IM), the intensity of the light wave is modulated to carry data.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 190,
+                question: "In Intensity Modulation (IM), a binary 0 represents high intensity (light 'on').",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 191,
+                question: "Which modulation technique uses phase changes to represent data?",
+                options: [
+                    "Amplitude Shift Keying (ASK)",
+                    "Phase Shift Keying (PSK)",
+                    "Frequency Shift Keying (FSK)",
+                    "Quadrature Amplitude Modulation (QAM)"
+                ],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 192,
+                question: "How many phases does Binary Phase Shift Keying (BPSK) use to encode data?",
+                options: ["One phase", "Two phases", "Three phases", "Four phases"],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 193,
+                question: "Phase Shift Keying (PSK) is particularly useful for long-distance and high-speed transmission.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 194,
+                question: "Quadrature Phase Shift Keying (QPSK) encodes data using two phases.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            // Page 23
+            {
+                id: 195,
+                question: "What does Quadrature Amplitude Modulation (QAM) modulate to encode multiple bits per symbol?",
+                options: [
+                    "Only the amplitude of the light wave",
+                    "Only the phase of the light wave",
+                    "Both the amplitude and phase of the light wave",
+                    "The frequency of the light wave"
+                ],
+                correctAnswer: 2,
+                category: "signals"
+            },
+            {
+                id: 196,
+                question: "How many bits per symbol does 16-QAM transmit?",
+                options: ["2 bits", "4 bits", "6 bits", "8 bits"],
+                correctAnswer: 1,
+                category: "signals"
+            },
+            {
+                id: 197,
+                question: "Quadrature Amplitude Modulation (QAM) is used in high-speed optical communication systems.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 198,
+                question: "64-QAM transmits 4 bits per symbol.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 199,
+                question: "Which modulation method is rarely used in optical fiber systems due to its lower spectral efficiency?",
+                options: [
+                    "Amplitude Shift Keying (ASK)",
+                    "Phase Shift Keying (PSK)",
+                    "Frequency Shift Keying (FSK)",
+                    "Quadrature Amplitude Modulation (QAM)"
+                ],
+                correctAnswer: 2,
+                category: "signals"
+            },
+            {
+                id: 200,
+                question: "What is a variation of Frequency Shift Keying (FSK) that has been implemented in some optical systems?",
+                options: [
+                    "Amplitude Modulation (AM)",
+                    "Phase Modulation (PM)",
+                    "Minimum Shift Keying (MSK)",
+                    "Pulse Modulation (PM)"
+                ],
+                correctAnswer: 2,
+                category: "signals"
+            },
+            // Page 24
+            {
+                id: 201,
+                question: "Frequency Shift Keying (FSK) is commonly used in high-speed optical communication systems.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 202,
+                question: "Minimum Shift Keying (MSK) is a variation of Frequency Shift Keying (FSK).",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "signals",
+                type: "truefalse"
+            },
+            {
+                id: 203,
+                question: "What is the primary function of an optical receiver?",
+                options: [
+                    "To amplify electrical signals",
+                    "To convert the received optical signal back into an electrical signal",
+                    "To modulate light waves",
+                    "To transmit optical signals"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 204,
+                question: "Which type of optical receiver uses a photodetector to convert light into an electrical signal?",
+                options: [
+                    "Direct detection receiver",
+                    "Coherent detection receiver",
+                    "Phase detection receiver",
+                    "Frequency detection receiver"
+                ],
+                correctAnswer: 0,
+                category: "fiber"
+            },
+            {
+                id: 205,
+                question: "An optical receiver converts the received optical signal back into an electrical signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 206,
+                question: "There are three types of optical receivers: direct detection, coherent detection, and phase detection.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 207,
+                question: "What is a key advantage of a direct detection receiver?",
+                options: [
+                    "High complexity",
+                    "Simple and cost-effective",
+                    "High sensitivity",
+                    "High data rate"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 208,
+                question: "In which applications are direct detection receivers commonly used?",
+                options: [
+                    "Long-haul optical networks",
+                    "Fiber-to-the-home (FTTH)",
+                    "Satellite communication",
+                    "Wireless communication"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            // Page 25
+            {
+                id: 209,
+                question: "Direct detection receivers are suitable for Intensity Modulation/Direct Detection (IM/DD) systems.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 210,
+                question: "Direct detection receivers have higher sensitivity and data rates compared to coherent detection receivers.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 211,
+                question: "What does a coherent detection receiver use to combine the optical signal with a local oscillator?",
+                options: ["Photodetector", "Amplifier", "Hybrid", "Modulator"],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            {
+                id: 212,
+                question: "What is an advantage of coherent detection receivers?",
+                options: [
+                    "Simple design",
+                    "Higher sensitivity",
+                    "Lower cost",
+                    "Limited modulation formats"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 213,
+                question: "Coherent detection receivers can detect both the intensity and phase of the optical signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 214,
+                question: "Coherent detection receivers are less complex and cheaper than direct detection receivers.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 215,
+                question: "Which advanced modulation formats are supported by coherent detection receivers?",
+                options: [
+                    "ASK and FSK",
+                    "QPSK and QAM",
+                    "AM and FM",
+                    "OOK and MSK"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 216,
+                question: "What is a limitation of coherent detection receivers?",
+                options: [
+                    "Low sensitivity",
+                    "Limited modulation formats",
+                    "Requires precise synchronization with the local oscillator",
+                    "Simple design"
+                ],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            // Page 26
+            {
+                id: 217,
+                question: "Coherent detection receivers can compensate for impairments like chromatic dispersion and polarization mode dispersion (PMD).",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 218,
+                question: "Coherent detection receivers do not require synchronization with the local oscillator.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 219,
+                question: "What is the primary function of optical filters?",
+                options: [
+                    "To amplify light signals",
+                    "To selectively transmit or block certain wavelengths of light",
+                    "To convert light signals to electrical signals",
+                    "To modulate light signals"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 220,
+                question: "Which characteristic of optical filters refers to the range of wavelengths that are allowed to pass through?",
+                options: [
+                    "Center Wavelength",
+                    "Bandwidth",
+                    "Rejection Band",
+                    "Insertion Loss"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 221,
+                question: "Optical filters are used to selectively transmit or block certain wavelengths of light.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 222,
+                question: "Insertion Loss refers to the range of wavelengths that are allowed to pass through an optical filter.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 223,
+                question: "What type of optical filter allows light of a certain wavelength range to pass through while rejecting others?",
+                options: [
+                    "Fiber Bragg Gratings (FBG)",
+                    "Bandpass Filters",
+                    "Tunable Optical Filters",
+                    "Low-pass Filters"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            // Page 27
+            {
+                id: 224,
+                question: "What is a key feature of Fiber Bragg Gratings (FBG)?",
+                options: [
+                    "Adjustable center wavelength",
+                    "Periodic variation in the refractive index of the fiber core",
+                    "High insertion loss",
+                    "Low selectivity"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 225,
+                question: "Bandpass filters allow light of a certain wavelength range to pass through while rejecting others.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 226,
+                question: "Fiber Bragg Gratings (FBG) have a fixed center wavelength that cannot be adjusted.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 227,
+                question: "Which type of optical filter is commonly used in multiplexing/demultiplexing applications?",
+                options: [
+                    "Low-pass Filters",
+                    "Bandpass Filters",
+                    "High-pass Filters",
+                    "Notch Filters"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 228,
+                question: "What is an advantage of Tunable Optical Filters?",
+                options: [
+                    "Fixed operation",
+                    "Flexibility to tune different channels",
+                    "High insertion loss",
+                    "Low selectivity"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 229,
+                question: "Bandpass filters are commonly used in multiplexing/demultiplexing applications.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 230,
+                question: "Tunable Optical Filters have a fixed center wavelength.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 231,
+                question: "What does a Mach-Zehnder (MZ) interferometer use to split the incoming wave?",
+                options: ["Photodetector", "Amplifier", "Splitter", "Modulator"],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            // Page 28
+            {
+                id: 232,
+                question: "What happens to wavelengths for which the phase difference is 180° in a Mach-Zehnder interferometer?",
+                options: [
+                    "They are amplified",
+                    "They are transmitted",
+                    "They are filtered out",
+                    "They are modulated"
+                ],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            {
+                id: 233,
+                question: "A Mach-Zehnder interferometer uses a splitter to split the incoming wave into two waveguides.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 234,
+                question: "Wavelengths for which the phase difference is 90° are filtered out in a Mach-Zehnder interferometer.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 235,
+                question: "How can the tunability of a Mach-Zehnder interferometer be achieved?",
+                options: [
+                    "By varying the voltage",
+                    "By varying the temperature",
+                    "By changing the wavelength",
+                    "By adjusting the pressure"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 236,
+                question: "What is a characteristic of a Mach-Zehnder interferometer?",
+                options: [
+                    "High cost",
+                    "Low cost",
+                    "Fixed wavelength",
+                    "High complexity"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 237,
+                question: "The tunability of a Mach-Zehnder interferometer can be achieved by varying the temperature.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 238,
+                question: "A Mach-Zehnder interferometer is a high-cost device.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            // Page 29
+            {
+                id: 239,
+                question: "What does DWDM stand for?",
+                options: [
+                    "Dense Wavelength Division Multiplexing",
+                    "Dense Wavelength Division Multiplexing",
+                    "Digital Wavelength Division Multiplexing",
+                    "Dynamic Wavelength Division Multiplexing"
+                ],
+                correctAnswer: 0,
+                category: "wdm"
+            },
+            {
+                id: 240,
+                question: "Which component is used to add or drop specific wavelengths in a DWDM system?",
+                options: [
+                    "Optical Amplifier",
+                    "Optical Attenuator",
+                    "Optical Add/Drop Multiplexer (OADM)",
+                    "Transponder"
+                ],
+                correctAnswer: 2,
+                category: "wdm"
+            },
+            {
+                id: 241,
+                question: "DWDM stands for Dense Wavelength Division Multiplexing.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 242,
+                question: "An Optical Amplifier is used to add or drop specific wavelengths in a DWDM system.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 243,
+                question: "What is the function of an Optical Amplifier (EDFA) in a DWDM system?",
+                options: [
+                    "To filter wavelengths",
+                    "To amplify optical signals",
+                    "To attenuate optical signals",
+                    "To multiplex signals"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 244,
+                question: "What does DCM stand for in the context of DWDM components?",
+                options: [
+                    "Digital Communication Module",
+                    "Dispersion Compensator Module",
+                    "Data Control Module",
+                    "Dynamic Channel Module"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 245,
+                question: "An Optical Amplifier (EDFA) is used to amplify optical signals in a DWDM system.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 246,
+                question: "DCM stands for Digital Communication Module.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            // Page 30
+            {
+                id: 247,
+                question: "What is the primary function of a transponder in a DWDM system?",
+                options: [
+                    "To amplify optical signals",
+                    "To convert the client signal into a DWDM-compliant optical signal",
+                    "To filter wavelengths",
+                    "To modulate light signals"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 248,
+                question: "Which wavelength is commonly used in multimode fiber systems for short-distance connections?",
+                options: ["850 nm", "1310 nm", "1550 nm", "1625 nm"],
+                correctAnswer: 0,
+                category: "wdm"
+            },
+            {
+                id: 249,
+                question: "A transponder in a DWDM system can regenerate the signal to improve quality for long-distance transmission.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 250,
+                question: "The DWDM system operates in the S-band of the optical spectrum.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 251,
+                question: "What is the function of an isolator in an optical system?",
+                options: [
+                    "To combine optical signals",
+                    "To allow light to pass in one direction but not in the opposite direction",
+                    "To split optical signals",
+                    "To amplify optical signals"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 252,
+                question: "Where are isolators commonly used?",
+                options: [
+                    "At the receiver end",
+                    "In multiplexers",
+                    "In the front and end of optical components such as amplifiers and laser diode modules",
+                    "In transponders"
+                ],
+                correctAnswer: 2,
+                category: "fiber"
+            },
+            {
+                id: 253,
+                question: "Isolators allow light to pass in both directions.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "fiber",
+                type: "truefalse"
+            },
+            // Page 31
+            {
+                id: 254,
+                question: "Isolators are used in the front and end of optical components such as amplifiers and laser diode modules.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 255,
+                question: "What is the function of a circulator in an optical system?",
+                options: [
+                    "To amplify optical signals",
+                    "To direct light entering at any particular port to exit at the next port",
+                    "To filter wavelengths",
+                    "To modulate light signals"
+                ],
+                correctAnswer: 1,
+                category: "fiber"
+            },
+            {
+                id: 256,
+                question: "Which component combines multiple optical signals into a single beam?",
+                options: [
+                    "Optical Multiplexer (MUX)",
+                    "Optical De-multiplexer (DEMUX)",
+                    "Optical Amplifier",
+                    "Optical Attenuator"
+                ],
+                correctAnswer: 0,
+                category: "wdm"
+            },
+            {
+                id: 257,
+                question: "A circulator directs light entering at any particular port to exit at the next port.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "fiber",
+                type: "truefalse"
+            },
+            {
+                id: 258,
+                question: "An Optical De-multiplexer (DEMUX) combines multiple optical signals into a single beam.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 259,
+                question: "What is the primary function of an Optical De-multiplexer (DEMUX)?",
+                options: [
+                    "To combine optical signals",
+                    "To separate combined optical signals into individual wavelengths",
+                    "To amplify optical signals",
+                    "To filter wavelengths"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 260,
+                question: "Which component is used to separate the combined optical signals at the receiver end?",
+                options: [
+                    "Optical Amplifier",
+                    "Optical De-multiplexer (DEMUX)",
+                    "Optical Attenuator",
+                    "Optical Isolator"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 261,
+                question: "An Optical De-multiplexer (DEMUX) separates combined optical signals into individual wavelengths.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            // Page 32
+            {
+                id: 262,
+                question: "An Optical Multiplexer (MUX) separates combined optical signals at the receiver end.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 263,
+                question: "What is the function of a transponder in a DWDM system?",
+                options: [
+                    "To amplify optical signals",
+                    "To convert the client signal into a DWDM-compliant optical signal",
+                    "To filter wavelengths",
+                    "To modulate light signals"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 264,
+                question: "What does DWDM stand for?",
+                options: [
+                    "Digital Wavelength Division Multiplexing",
+                    "Dense Wavelength Division Multiplexing",
+                    "Dynamic Wavelength Division Multiplexing",
+                    "Discrete Wavelength Division Multiplexin"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 265,
+                question: "A transponder in a DWDM system can regenerate the signal to improve quality for long-distance transmission.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 266,
+                question: "What is the function of an Optical Add-Drop Multiplexer (OADM)?",
+                options: [
+                    "To amplify optical signals",
+                    "To add or remove specific wavelengths from the DWDM signal",
+                    "To filter wavelengths",
+                    "To modulate light signals"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 267,
+                question: "Why is an OADM useful in a DWDM system?",
+                options: [
+                    "It combines multiple optical signals into a single beam",
+                    "It routes specific channels to different destinations without disrupting the entire signal",
+                    "It amplifies the signal strength",
+                    "It converts electrical signals to optical signals"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 268,
+                question: "An Optical Add-Drop Multiplexer (OADM) adds or removes specific wavelengths from the DWDM signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            // Page 33
+            {
+                id: 269,
+                question: "An OADM disrupts the entire signal when routing specific channels to different destinations.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 270,
+                question: "What is the primary function of an optical attenuator in a DWDM system?",
+                options: [
+                    "To amplify optical signals",
+                    "To control the power level of the optical signal",
+                    "To filter wavelengths",
+                    "To modulate light signals"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 271,
+                question: "What is a Variable Optical Attenuator (VOA) used for?",
+                options: [
+                    "To provide a fixed amount of attenuation",
+                    "To allow for adjustable attenuation levels",
+                    "To combine optical signals",
+                    "To split optical signals"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 272,
+                question: "An optical attenuator is used to control the power level of the optical signal in a DWDM system.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 273,
+                question: "A Variable Optical Attenuator (VOA) provides a fixed amount of attenuation.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 274,
+                question: "What is the purpose of a Dispersion Compensation Module (DCM)?",
+                options: [
+                    "To amplify optical signals",
+                    "To compensate for chromatic dispersion in optical fibers",
+                    "To convert optical signals to electrical signals",
+                    "To filter wavelengths"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 275,
+                question: "What characteristic does Dispersion Compensating Fiber (DCF) have?",
+                options: [
+                    "Positive chromatic dispersion",
+                    "Negative chromatic dispersion",
+                    "Zero chromatic dispersion",
+                    "Variable chromatic dispersion"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 276,
+                question: "Chromatic dispersion causes signal degradation as it travels through the fiber.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 277,
+                question: "DCF has positive chromatic dispersion, which broadens the pulse.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            // Page 34
+            {
+                id: 278,
+                question: "What is an optical amplifier?",
+                options: [
+                    "A device that converts optical signals to electrical signals",
+                    "A device that amplifies an optical signal directly without converting it to an electrical signal",
+                    "A device that filters optical signals",
+                    "A device that modulates optical signals"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 279,
+                question: "Which type of optical amplifier uses a fiber doped with erbium?",
+                options: [
+                    "Raman Amplifier",
+                    "Semiconductor Optical Amplifier (SOA)",
+                    "Erbium-Doped Fiber Amplifier (EDFA)",
+                    "Ytterbium-Doped Fiber Amplifier (YDFA)"
+                ],
+                correctAnswer: 2,
+                category: "wdm"
+            },
+            {
+                id: 280,
+                question: "An optical amplifier converts optical signals to electrical signals before amplifying them.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 281,
+                question: "EDFAs are compatible with standard single-mode optical fibers.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 282,
+                question: "What is the role of the pump laser in an EDFA?",
+                options: [
+                    "To filter the signal",
+                    "To increase the signal strength by exciting erbium ions",
+                    "To convert the signal to an electrical signal",
+                    "To modulate the signal"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 283,
+                question: "At what wavelengths is the fiber in an EDFA typically pumped?",
+                options: [
+                    "850 nm and 1310 nm",
+                    "980 nm and 1480 nm",
+                    "1550 nm and 1625 nm",
+                    "1000 nm and 2000 nm"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 284,
+                question: "The pump laser in an EDFA excites erbium ions to release additional photons at the same wavelength.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 285,
+                question: "An isolator is placed at the end of an EDFA to avoid reflections.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            // Page 35
+            {
+                id: 286,
+                question: "What is the purpose of Dispersion Compensating Fiber (DCF)?",
+                options: [
+                    "To amplify optical signals.",
+                    "To reverse the effect of chromatic dispersion.",
+                    "To convert optical signals to electrical signals.",
+                    "To increase the bandwidth of the fiber."
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 287,
+                question: "Which type of optical amplifier uses erbium-doped fiber and a pump laser?",
+                options: [
+                    "Raman Amplifier",
+                    "Erbium-Doped Fiber Amplifier (EDFA)",
+                    "Semiconductor Optical Amplifier (SOA)",
+                    "Dispersion Compensating Fiber (DCF)"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 288,
+                question: "What is a characteristic of Erbium-Doped Fiber Amplifiers (EDFAs)?",
+                options: [
+                    "High noise with low gain.",
+                    "High gain with low noise.",
+                    "Incompatible with standard single-mode optical fibers.",
+                    "Used only for short-distance communication."
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 289,
+                question: "Dispersion Compensating Fiber (DCF) has positive chromatic dispersion.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 290,
+                question: "What is the function of a pump laser in an EDFA?",
+                options: [
+                    "To convert optical signals to electrical signals.",
+                    "To increase the signal strength by exciting erbium ions.",
+                    "To decrease the noise in the signal.",
+                    "To isolate the signal from reflections."
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 291,
+                question: "What is the purpose of an isolator in an EDFA?",
+                options: [
+                    "To amplify the signal.",
+                    "To avoid reflections and prevent the fiber from converting into a laser.",
+                    "To convert the signal to electrical form.",
+                    "To increase the bandwidth."
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            // Page 36
+            {
+                id: 292,
+                question: "EDFAs use a fiber doped with erbium and a pump laser to increase signal strength.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 293,
+                question: "The pump laser in an EDFA operates at 850 nm and 1310 nm.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 294,
+                question: "An isolator is placed at the end of an EDFA to amplify the signal.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 295,
+                question: "What is the main difference between Optical Amplifiers and Regenerators?",
+                options: [
+                    "Optical Amplifiers convert signals to electrical form.",
+                    "Regenerators amplify signals directly in optical form.",
+                    "Optical Amplifiers amplify signals directly in optical form.",
+                    "Regenerators do not clean the signal."
+                ],
+                correctAnswer: 2,
+                category: "wdm"
+            },
+            {
+                id: 296,
+                question: "Which of the following is a feature of Optical Amplifiers?",
+                options: [
+                    "Removes noise, reshapes, and retimes signal.",
+                    "Amplifies signal and noise together.",
+                    "Provides a clean, fully restored signal.",
+                    "Higher cost and complexity due to O-E-O conversion."
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 297,
+                question: "What is the typical application of Regenerators?",
+                options: [
+                    "Long-haul, DWDM systems.",
+                    "Ultra-long-haul, high-integrity systems.",
+                    "Short-distance communication.",
+                    "Local area networks."
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 298,
+                question: "Optical Amplifiers convert signals to electrical form.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 299,
+                question: "Regenerators provide a clean, fully restored signal.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 300,
+                question: "Optical Amplifiers are used in ultra-long-haul, high-integrity systems.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            // Page 37
+            {
+                id: 301,
+                question: "What does WC stand for in the context of optical communication?",
+                options: [
+                    "Wave Conversion",
+                    "Wavelength Converters",
+                    "Waveform Control",
+                    "Wavelength Control"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 302,
+                question: "Which technology involves converting an optical signal to an electrical signal and then back to an optical signal?",
+                options: [
+                    "Coherent Wavelength Conversion",
+                    "Opto-Electronic Wavelength Conversion",
+                    "Optical Amplification",
+                    "Optical Switching"
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 303,
+                question: "What is a characteristic of Wavelength Conversion Using Coherent Effects?",
+                options: [
+                    "Requires photodetectors and lasers.",
+                    "Relies on nonlinear optical effects.",
+                    "Involves electronic components.",
+                    "Limited by electronic speed."
+                ],
+                correctAnswer: 1,
+                category: "wdm"
+            },
+            {
+                id: 304,
+                question: "Opto-Electronic Wavelength Conversion involves all-optical, nonlinear interactions.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 305,
+                question: "Wavelength Conversion Using Coherent Effects does not involve electrical conversion.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 306,
+                question: "Opto-Electronic Wavelength Conversion is typically used in DWDM, optical packet-switched networks.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "wdm",
+                type: "truefalse"
+            },
+            {
+                id: 307,
+                question: "What is the function of an optical switch?",
+                options: [
+                    "Directs an input optical signal to the desired output port.",
+                    "Converts optical signals to electrical signals.",
+                    "Amplifies optical signals.",
+                    "Regenerates optical signals."
+                ],
+                correctAnswer: 0,
+                category: "networks"
+            },
+            // Page 38
+            {
+                id: 308,
+                question: "Which type of switching is currently employed in WDM optical networks?",
+                options: [
+                    "Packet switching",
+                    "Circuit (wavelength-routed) switching",
+                    "Time-division switching",
+                    "Frequency-division switching"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 309,
+                question: "What is a challenge faced by packet switching in optical networks?",
+                options: [
+                    "High cost",
+                    "Complexity of implementation",
+                    "Many challenges still exist",
+                    "Limited speed"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 310,
+                question: "An optical switch converts optical signals to electrical signals.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 311,
+                question: "Circuit switching is currently employed in WDM optical networks.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 312,
+                question: "Packet switching in optical networks faces no challenges.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 313,
+                question: "What is the transmission medium for the first generation (G1) electronic network?",
+                options: ["Copper cables", "Optical fiber", "Wireless", "Satellite"],
+                correctAnswer: 0,
+                category: "networks"
+            },
+            {
+                id: 314,
+                question: "Which network generation is currently deployed in backbone networks (WANs), MANs, and LANs?",
+                options: ["G1", "G2", "G3", "G4"],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            // Page 39
+            {
+                id: 315,
+                question: "What technology is used in G4 optical networks?",
+                options: ["Electronic", "Hybrid", "Optical", "Wireless"],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 316,
+                question: "G2 networks use optical fiber as the transmission medium.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 317,
+                question: "G3 networks are still in research laboratories.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 318,
+                question: "G1 networks use WDM technology.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 319,
+                question: "What is the main challenge for all-optical networks?",
+                options: [
+                    "High cost",
+                    "Fiber/Processor Bottlenecks",
+                    "Limited bandwidth",
+                    "Incompatibility with existing systems"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 320,
+                question: "Which generation of WDM networks includes Wavelength Add/Drop Multiplexers (WADM)?",
+                options: [
+                    "First generation",
+                    "Second generation",
+                    "Third generation",
+                    "Fourth generation"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 321,
+                question: "What is the maximum channel count for point-to-point WDM systems today?",
+                options: ["64", "128", "160", "320"],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 322,
+                question: "All-optical networks are currently in research laboratories.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 40
+            {
+                id: 323,
+                question: "Point-to-point WDM systems were first deployed in the early to mid-90s.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 324,
+                question: "The maximum channel count for point-to-point WDM systems is 64.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 325,
+                question: "What is the primary benefit of point-to-point WDM systems?",
+                options: [
+                    "Reduces the cost of optical fibers.",
+                    "Upgrades the transmission capacity of communication links.",
+                    "Converts optical signals to electrical signals.",
+                    "Increases the bandwidth of electronic networks."
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 326,
+                question: "Which of the following is a feature of the first generation of WDM networks?",
+                options: [
+                    "Uses Wavelength Add/Drop Multiplexers (WADM).",
+                    "Deployed as a cost-effective means to upgrade transmission capacity.",
+                    "Includes Fiber and Wavelength Crossconnects.",
+                    "Operates in research laboratories."
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 327,
+                question: "What is the common channel count for WDM point-to-point systems today?",
+                options: ["32", "64", "128", "256"],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 328,
+                question: "The first generation of WDM networks was deployed in the early to mid-90s.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 329,
+                question: "WDM point-to-point systems have a maximum channel count of 64 today.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 330,
+                question: "The number of channels in WDM point-to-point systems will reach 320 in the near future.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 331,
+                question: "What is the main purpose of Wavelength Add/Drop Multiplexers (WADM) in WDM networks?",
+                options: [
+                    "To amplify optical signals.",
+                    "To add or drop specific wavelengths from the optical signal.",
+                    "To convert optical signals to electrical signals.",
+                    "To increase the bandwidth of the fiber."
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 41
+            {
+                id: 332,
+                question: "Which type of WDM network includes Fiber and Wavelength Crossconnects?",
+                options: [
+                    "First generation",
+                    "Second generation",
+                    "Third generation",
+                    "Fourth generation"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 333,
+                question: "Wavelength Add/Drop Multiplexers (WADM) are part of the first generation of WDM networks.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 334,
+                question: "Fiber and Wavelength Crossconnects are used in the third generation of WDM networks.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 335,
+                question: "What is the main challenge addressed by all-optical networks?",
+                options: [
+                    "High cost of implementation",
+                    "Fiber capacity increase outstripping electronic switching capacity",
+                    "Limited availability of optical fibers",
+                    "Compatibility with existing electronic networks"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 336,
+                question: "Which of the following is a feature of the third generation of WDM networks?",
+                options: [
+                    "Uses single wavelength optical transmission",
+                    "Deployed in research laboratories",
+                    "Includes Fiber and Wavelength Crossconnects",
+                    "Limited to small-scale optical systems"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 337,
+                question: "All-optical networks are currently deployed in backbone networks.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 338,
+                question: "The second generation of WDM networks includes Wavelength Add/Drop Multiplexers (WADM).",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 42
+            {
+                id: 339,
+                question: "What components make up a Wavelength Add/Drop Multiplexer (WADM)?",
+                options: [
+                    "DEMUX and amplifier",
+                    "DEMUX, switches, and MUX",
+                    "MUX and splitter",
+                    "Amplifier and splitter"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 340,
+                question: "What is the primary function of a WADM in WDM transmission links?",
+                options: [
+                    "To amplify optical signals",
+                    "To add or drop data streams at intermediate points",
+                    "To convert optical signals to electrical signals",
+                    "To increase the bandwidth of the fiber"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 341,
+                question: "What limitation does a WADM have despite increasing the flexibility of point-to-point WDM systems?",
+                options: [
+                    "High cost",
+                    "Does not provide the capability of interconnecting multiwavelength fiber links",
+                    "Limited bandwidth",
+                    "Complex installation"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 342,
+                question: "A WADM consists of a DEMUX, followed by a set of switches, and then a MUX.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 343,
+                question: "WADMs provide the capability of interconnecting a set of multiwavelength fiber links.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 344,
+                question: "The introduction of WADMs marked the birth of the third generation of WDM systems.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 345,
+                question: "What is the basic functionality of a passive star in WDM networks?",
+                options: [
+                    "To amplify optical signals",
+                    "To equally split the power of an input signal among all output fibers",
+                    "To convert optical signals to electrical signals",
+                    "To increase the bandwidth of the fiber"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 43
+            {
+                id: 346,
+                question: "What happens when two or more signals are launched into a passive star on the same wavelength?",
+                options: [
+                    "The signals are amplified",
+                    "A collision occurs",
+                    "The signals are converted to electrical signals",
+                    "The signals are dropped"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 347,
+                question: "What is the connectivity pattern between wavelengths on input fibers and output fibers in a passive router defined by?",
+                options: ["The amplifier", "The routing matrix", "The splitter", "The MUX"],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 348,
+                question: "A passive star splits the power of an input signal equally among all output fibers.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 349,
+                question: "In a passive star, a collision occurs when two or more signals are launched on the same wavelength.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 350,
+                question: "The connectivity pattern in a passive router is determined by the amplifier.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 351,
+                question: "What is the primary function of a passive router in WDM networks?",
+                options: [
+                    "To amplify optical signals",
+                    "To manage the routing of optical signals using predetermined paths",
+                    "To convert optical signals to electrical signals",
+                    "To increase the bandwidth of the fiber"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 352,
+                question: "What determines the connectivity pattern in a passive router?",
+                options: ["The amplifier", "The routing matrix", "The splitter", "The MUX"],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 44
+            {
+                id: 353,
+                question: "Passive routers can combine or split signals based on specific wavelengths without any active signal processing.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 354,
+                question: "The routing matrix in a passive router is determined by the external connections between the DEMUX and MUX stages.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 355,
+                question: "What are some commercial names for passive routers?",
+                options: [
+                    "Optical amplifiers and splitters",
+                    "Waveguide grating routers (WGRs), arrayed waveguide grating (AWG), wavelength routers (WRs), and Latin routers",
+                    "Optical switches and converters",
+                    "Fiber amplifiers and multiplexers"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 356,
+                question: "What is a key feature of passive routers in WDM networks?",
+                options: [
+                    "They amplify signals",
+                    "They have a fixed connectivity pattern defined by the routing matrix",
+                    "They convert optical signals to electrical signals",
+                    "They increase the bandwidth of the fiber"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 357,
+                question: "Passive routers are also known as waveguide grating routers (WGRs) and arrayed waveguide grating (AWG).",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 358,
+                question: "The connectivity pattern in passive routers is dynamic and changes based on the input signal.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 359,
+                question: "What is a common name for active switches in WDM networks?",
+                options: [
+                    "Passive router",
+                    "Wavelength-routed switch (WRS)",
+                    "Passive star",
+                    "Optical amplifier"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 45
+            {
+                id: 360,
+                question: "What is a key difference between active switches and passive routers?",
+                options: [
+                    "Active switches have a fixed routing matrix",
+                    "Active switches have a reconfigurable routing matrix",
+                    "Passive routers require external power",
+                    "Passive routers perform signal processing"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 361,
+                question: "Active switches can be reconfigured to direct the same wavelength from different fibers to any of the output fibers.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 362,
+                question: "Passive routers have a reconfigurable routing matrix.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 363,
+                question: "What is a limitation of active switches that can be overcome by employing wavelength converters?",
+                options: [
+                    "High cost",
+                    "Blocking under some configurations",
+                    "Limited bandwidth",
+                    "Complex installation"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 364,
+                question: "Which feature is associated with passive stars in WDM networks?",
+                options: [
+                    "Does not require power",
+                    "Performs signal processing",
+                    "Dynamic configuration",
+                    "High installation cost"
+                ],
+                correctAnswer: 0,
+                category: "networks"
+            },
+            {
+                id: 365,
+                question: "Active switches can be blocking under some configurations.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 366,
+                question: "Passive stars perform signal processing and amplification.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 367,
+                question: "Which type of optical interconnection device is highly scalable and can manage a larger number of connections dynamically?",
+                options: [
+                    "Passive star",
+                    "Passive router",
+                    "Active switch",
+                    "Optical amplifier"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            // Page 46
+            {
+                id: 368,
+                question: "What is a key application of active switches in WDM networks?",
+                options: [
+                    "Fiber-to-the-home (FTTH)",
+                    "Local area networks",
+                    "Data centers, telecommunications, and metro networks",
+                    "Fixed routing applications"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 369,
+                question: "Active switches require external power and perform signal processing.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 370,
+                question: "Passive routers are highly scalable and can manage a larger number of connections dynamically.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 371,
+                question: "What is another name for Optical Circuit Switching (OCS) Networks?",
+                options: [
+                    "Packet Switching Networks",
+                    "Wavelength-Routed Networks",
+                    "Time-Division Multiplexing Networks",
+                    "Frequency-Division Multiplexing Networks"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 372,
+                question: "In optical networks, what is the circuit commonly called?",
+                options: ["Pathway", "Lightpath", "Fiber route", "Optical link"],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 373,
+                question: "In Optical Circuit Switching Networks, a circuit is established in a set-up phase between the sender and the receiver.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 374,
+                question: "In optical networks, the circuit is commonly called a fiber route.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 47
+            {
+                id: 375,
+                question: "What is the main goal when solving the wavelength routing and assignment problem (WRA)?",
+                options: [
+                    "To minimize the cost of the network",
+                    "To maximize the number of lightpaths established",
+                    "To reduce the power consumption",
+                    "To increase the bandwidth"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 376,
+                question: "Which routing strategy uses Dijkstra's algorithm to find the shortest path?",
+                options: [
+                    "Adaptive Routing",
+                    "Fixed Routing",
+                    "Fixed-Alternate Routing",
+                    "Fault-Tolerant Routing"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 377,
+                question: "The wavelength routing and assignment problem (WRA) involves computing the routes and wavelengths for lightpaths.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 378,
+                question: "Fixed-Alternate Routing is a strategy that uses Dijkstra's algorithm to find the shortest path.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 379,
+                question: "Which wavelength assignment strategy assigns wavelengths randomly?",
+                options: [
+                    "First-Fit (FF)",
+                    "Random Wavelength Assignment (R)",
+                    "Least-Used (LU)",
+                    "Most-Used (MU)"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 380,
+                question: "What problem has rendered WDM electronic switches into bottlenecks?",
+                options: [
+                    "High cost",
+                    "Speed-Mismatch Problem",
+                    "Limited bandwidth",
+                    "Complex installation"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 381,
+                question: "The First-Fit (FF) strategy assigns wavelengths randomly.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 382,
+                question: "The speed-mismatch problem has rendered WDM electronic switches into bottlenecks.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 48
+            {
+                id: 383,
+                question: "Which routing strategy adapts to network conditions and changes routes dynamically?",
+                options: [
+                    "Fixed Routing",
+                    "Fixed-Alternate Routing",
+                    "Adaptive Routing",
+                    "Fault-Tolerant Routing"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 384,
+                question: "What is the primary goal of the wavelength routing and assignment problem (WRA)?",
+                options: [
+                    "To minimize the cost of the network",
+                    "To maximize the number of lightpaths established",
+                    "To reduce the power consumption",
+                    "To increase the bandwidth"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 385,
+                question: "Adaptive Routing changes routes dynamically based on network conditions.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 386,
+                question: "The primary goal of the wavelength routing and assignment problem (WRA) is to minimize the cost of the network.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 387,
+                question: "Which wavelength assignment strategy assigns the least-used wavelengths first?",
+                options: [
+                    "First-Fit (FF)",
+                    "Random Wavelength Assignment (R)",
+                    "Least-Used (LU)",
+                    "Most-Used (MU)"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 388,
+                question: "What problem has rendered WDM electronic switches into bottlenecks?",
+                options: [
+                    "High cost",
+                    "Speed-Mismatch Problem",
+                    "Limited bandwidth",
+                    "Complex installation"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 389,
+                question: "The Least-Used (LU) strategy assigns the least-used wavelengths first.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 390,
+                question: "The speed-mismatch problem has rendered WDM electronic switches into bottlenecks.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 49
+            {
+                id: 391,
+                question: "Which routing strategy is designed to handle network failures and reroute traffic accordingly?",
+                options: [
+                    "Fixed Routing",
+                    "Fixed-Alternate Routing",
+                    "Adaptive Routing",
+                    "Fault-Tolerant Routing"
+                ],
+                correctAnswer: 3,
+                category: "networks"
+            },
+            {
+                id: 392,
+                question: "Which wavelength assignment strategy assigns the most-used wavelengths first?",
+                options: [
+                    "First-Fit (FF)",
+                    "Random Wavelength Assignment (R)",
+                    "Least-Used (LU)",
+                    "Most-Used (MU)"
+                ],
+                correctAnswer: 3,
+                category: "networks"
+            },
+            {
+                id: 393,
+                question: "Fault-Tolerant Routing is designed to handle network failures and reroute traffic accordingly.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 394,
+                question: "The Most-Used (MU) strategy assigns the least-used wavelengths first.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 395,
+                question: "What is the main issue caused by the speed-mismatch problem in WDM networks?",
+                options: [
+                    "Increased cost",
+                    "Bottlenecks in WDM electronic switches",
+                    "Reduced bandwidth",
+                    "Complex installation"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 396,
+                question: "Which routing strategy uses a predetermined set of alternate paths for routing?",
+                options: [
+                    "Adaptive Routing",
+                    "Fixed-Alternate Routing",
+                    "Fault-Tolerant Routing",
+                    "Fixed Routing"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 397,
+                question: "The speed-mismatch problem causes bottlenecks in WDM electronic switches.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 398,
+                question: "Fixed-Alternate Routing uses a predetermined set of alternate paths for routing.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 50
+            {
+                id: 399,
+                question: "What does Optical Packet Switching (OPS) process without conversion to the electronic domain?",
+                options: [
+                    "Electrical signals",
+                    "Packets (e.g., IP packets)",
+                    "Light signals",
+                    "Sound waves"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 400,
+                question: "What is required for the design of a truly OPS architecture?",
+                options: [
+                    "Electrical Memory and Computing",
+                    "Optical Memory and Computing",
+                    "Digital Memory and Processing",
+                    "Analog Memory and Processing"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 401,
+                question: "Optical Packet Switching (OPS) processes packets in the optical domain without conversion to the electronic domain.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 402,
+                question: "The design of a truly OPS architecture requires advances in electrical memory and computing.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 403,
+                question: "What occurs at a switching node when two or more packets try to leave on the same output port, wavelength, and time?",
+                options: ["Amplification", "Contention", "Conversion", "Multiplexing"],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 404,
+                question: "What technique is used in electrical packet-switched networks to resolve contention?",
+                options: [
+                    "Store-and-forward technique",
+                    "Wavelength conversion",
+                    "Optical buffering",
+                    "Frequency division"
+                ],
+                correctAnswer: 0,
+                category: "networks"
+            },
+            {
+                id: 405,
+                question: "Contention occurs when two or more packets try to leave the switch fabric on the same output port, wavelength, and time.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 406,
+                question: "In electrical packet-switched networks, contention is resolved with wavelength conversion.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 51
+            {
+                id: 407,
+                question: "What is used in optical packet switches to resolve contention due to the lack of optical RAM technology?",
+                options: [
+                    "Store-and-forward technique",
+                    "Fiber Delay Lines (FDL)",
+                    "Digital buffers",
+                    "Frequency converters"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 408,
+                question: "What is another method used for contention resolution in optical packet switches?",
+                options: [
+                    "Store-and-forward technique",
+                    "Wavelength Converters (WC)",
+                    "Digital buffers",
+                    "Frequency converters"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 409,
+                question: "Fiber Delay Lines (FDL) are used in optical packet switches to resolve contention.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 410,
+                question: "Wavelength Converters (WC) are used in optical packet switches to resolve contention.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 411,
+                question: "What does OPS represent for network evolution?",
+                options: [
+                    "Short-term strategy",
+                    "Long-term strategy",
+                    "Temporary solution",
+                    "Immediate fix"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 412,
+                question: "What are the challenges in switching at the wavelength granularity in optical networks?",
+                options: [
+                    "Lack of digital memory and processing",
+                    "Lack of optical RAM and efficient logic devices for optical signal processing",
+                    "High cost and complexity",
+                    "Limited bandwidth"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 413,
+                question: "OPS represents a long-term strategy for network evolution.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 414,
+                question: "Switching at the wavelength granularity in optical networks is difficult due to the lack of digital memory and processing.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 415,
+                question: "What is a key challenge in designing a truly OPS architecture?",
+                options: [
+                    "High cost of implementation",
+                    "Lack of optical RAM technology",
+                    "Limited bandwidth",
+                    "Compatibility with existing electronic networks"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 52
+            {
+                id: 416,
+                question: "What is one of the methods used for contention resolution in optical packet switches?",
+                options: [
+                    "Store-and-forward technique",
+                    "Fiber Delay Lines (FDL)",
+                    "Digital buffers",
+                    "Frequency converters"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 417,
+                question: "The lack of optical RAM technology is a key challenge in designing a truly OPS architecture.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 418,
+                question: "Fiber Delay Lines (FDL) are used for contention resolution in optical packet switches.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 419,
+                question: "What does Optical Burst Switching (OBS) aim to avoid?",
+                options: [
+                    "High cost of implementation",
+                    "Key shortcomings of OCS and OPS",
+                    "Limited bandwidth",
+                    "Compatibility with existing electronic networks"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 420,
+                question: "What is the key idea behind OBS?",
+                options: [
+                    "Convert bursts to electronic signals for routing",
+                    "Direct bursts through an optical network without passing through electronics for routing decisions",
+                    "Use digital buffers for burst assembly",
+                    "Increase the bandwidth of the fiber"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 421,
+                question: "OBS presents a compromise between OCS and OPS by avoiding some of their key shortcomings.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 422,
+                question: "The key idea behind OBS is to convert bursts to electronic signals for routing decisions.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 423,
+                question: "What is burst assembly in OBS networks?",
+                options: [
+                    "The process of converting optical signals to electronic signals",
+                    "The procedure for aggregating data packets into bursts at the edge of an OBS network",
+                    "The method of amplifying optical signals",
+                    "The technique of splitting optical signals"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 424,
+                question: "Which burst assembly algorithm uses a fixed time period to assemble packets into a burst?",
+                options: [
+                    "Threshold-based",
+                    "Timer-based",
+                    "Mixed timer/threshold-based",
+                    "Random-based"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 53
+            {
+                id: 425,
+                question: "Burst assembly is the procedure for aggregating data packets into bursts at the edge of an OBS network.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 426,
+                question: "The threshold-based burst assembly algorithm uses a fixed time period to assemble packets into a burst.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 427,
+                question: "What is a key consideration when setting the timeout value in a timer-based burst assembly scheme?",
+                options: [
+                    "Balancing packet delay and control overhead",
+                    "Maximizing the number of packets in a burst",
+                    "Minimizing the burst length",
+                    "Reducing the number of bursts"
+                ],
+                correctAnswer: 0,
+                category: "networks"
+            },
+            {
+                id: 428,
+                question: "What does the threshold specify in a threshold-based burst assembly scheme?",
+                options: [
+                    "The timeout value",
+                    "The number of packets to be aggregated or the burst length",
+                    "The control overhead",
+                    "The packet delay"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 429,
+                question: "In a timer-based burst assembly scheme, the timeout value should be set carefully to balance packet delay and control overhead.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 430,
+                question: "In a threshold-based burst assembly scheme, the threshold specifies the timeout value.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 431,
+                question: "What is the mixed timer/threshold-based burst assembly algorithm?",
+                options: [
+                    "Uses only a fixed time period to assemble packets",
+                    "Uses only a threshold to determine burst assembly",
+                    "Combines both timer and threshold parameters for burst assembly",
+                    "Uses random intervals for burst assembly"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 432,
+                question: "What happens if the timeout value in a timer-based burst assembly scheme is set too small?",
+                options: [
+                    "Packet delay at the edge becomes intolerable",
+                    "Too many small bursts are generated, resulting in higher control overhead",
+                    "Bursts are not generated at all",
+                    "The network bandwidth is reduced"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 433,
+                question: "The mixed timer/threshold-based burst assembly algorithm combines both timer and threshold parameters for burst assembly.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 54
+            {
+                id: 434,
+                question: "If the timeout value in a timer-based burst assembly scheme is set too small, it results in intolerable packet delay.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 435,
+                question: "What is the primary function of burst assembly in OBS networks?",
+                options: [
+                    "To amplify optical signals",
+                    "To aggregate data packets into bursts at the edge of the network",
+                    "To convert optical signals to electronic signals",
+                    "To split optical signals"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 436,
+                question: "Which burst assembly algorithm uses a threshold to determine when to generate a burst?",
+                options: [
+                    "Timer-based",
+                    "Threshold-based",
+                    "Mixed timer/threshold-based",
+                    "Random-based"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 437,
+                question: "Burst assembly in OBS networks aggregates data packets into bursts at the edge of the network.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 438,
+                question: "The timer-based burst assembly algorithm uses a threshold to determine when to generate a burst.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 439,
+                question: "What is a potential drawback of timer-based burst assembly schemes?",
+                options: [
+                    "High cost",
+                    "Undesirable burst lengths",
+                    "Limited bandwidth",
+                    "Complex installation"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 440,
+                question: "What is a common scheduling technique used in burst scheduling?",
+                options: [
+                    "Random scheduling",
+                    "First Fit (FF)",
+                    "Least Used (LU)",
+                    "Most Used (MU)"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 441,
+                question: "Timer-based burst assembly schemes might result in undesirable burst lengths.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 442,
+                question: "First Fit (FF) is a common scheduling technique used in burst scheduling.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 55
+            {
+                id: 443,
+                question: "What is the role of a burst-scheduling algorithm at an ingress node?",
+                options: [
+                    "Amplifying optical signals",
+                    "Adjusting the offset time for each burst",
+                    "Converting optical signals to electronic signals",
+                    "Splitting optical signals"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 444,
+                question: "Which of the following is a signaling protocol used in OBS?",
+                options: [
+                    "Store-and-forward",
+                    "Just Enough Time (JET)",
+                    "Fiber Delay Lines (FDL)",
+                    "Wavelength Converters (WC)"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 445,
+                question: "A burst-scheduling algorithm at an ingress node is responsible for adjusting the offset time for each burst.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 446,
+                question: "Just Enough Time (JET) is a signaling protocol used in OBS.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 447,
+                question: "What does a signaling protocol in OBS do?",
+                options: [
+                    "Amplifies optical signals",
+                    "Provisions services by establishing, deleting, and modifying switching paths",
+                    "Converts optical signals to electronic signals",
+                    "Splits optical signals"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 448,
+                question: "Which of the following is NOT a typical signaling protocol in OBS?",
+                options: [
+                    "Just In Time (JIT)",
+                    "Tell and Wait (TAW)",
+                    "Store-and-forward (SAF)",
+                    "Just Enough Time (JET)"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 449,
+                question: "A signaling protocol in OBS provisions services by establishing, deleting, and modifying switching paths.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 450,
+                question: "Store-and-forward (SAF) is a typical signaling protocol in OBS.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 451,
+                question: "Which OBS signaling protocol reserves resources just before a burst arrives?",
+                options: [
+                    "Tell and Wait (TAW)",
+                    "Just Enough Time (JET)",
+                    "Just In Time (JIT)",
+                    "Delay on Demand (DoD)"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 56
+            {
+                id: 452,
+                question: "What does OBS aim to balance between Optical Circuit Switching (OCS) and Optical Packet Switching (OPS)?",
+                options: [
+                    "Cost and complexity",
+                    "Flexibility and efficiency",
+                    "Speed and bandwidth",
+                    "Compatibility with electronic devices"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 453,
+                question: "One of the motivations for OBS is to overcome the limitations of Optical Packet Switching by bypassing electronic components for routing.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 454,
+                question: "In an OBS network, which component is used to assemble data packets into bursts?",
+                options: [
+                    "Fiber Splitter",
+                    "Optical RAM",
+                    "Burst Assembler",
+                    "Control Packet Processor"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 455,
+                question: "Burst assembly is the process of grouping multiple data packets at the edge of an OBS network before sending them as a single burst.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 456,
+                question: "What is a key disadvantage of using a purely timer-based burst assembly technique?",
+                options: [
+                    "High packet loss",
+                    "Excessive burst delay",
+                    "Unpredictable control overhead",
+                    "Low bandwidth utilization"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 457,
+                question: "A threshold-based assembly technique only begins forming a burst once a predefined number of packets has been received.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 458,
+                question: "Which factor is optimized by using a mixed timer/threshold-based burst assembly approach?",
+                options: [
+                    "Burst length consistency",
+                    "Control packet overhead",
+                    "Balance between delay and operational complexity",
+                    "Wavelength allocation"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 459,
+                question: "Which of the following is NOT a responsibility of the burst scheduling algorithm in OBS?",
+                options: [
+                    "Adjusting burst offset time",
+                    "Wavelength conversion",
+                    "Scheduling bursts on output links",
+                    "Forwarding bursts to the network"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 460,
+                question: "Using a mixed timer/threshold-based scheme increases both delay control and operational complexity in OBS networks.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 57
+            {
+                id: 461,
+                question: "Burst scheduling algorithms such as First Fit (FF) are used in OBS to optimize the assignment of bursts to network channels.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 462,
+                question: "What is the main purpose of a signaling protocol in OBS?",
+                options: [
+                    "Assigning wavelengths to channels",
+                    "Managing burst length",
+                    "Establishing and modifying switching paths",
+                    "Aggregating data packets"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 463,
+                question: "In the OBS protocol Just Enough Time (JET), the control packet reserves network resources for the burst just before it arrives.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 464,
+                question: "Which OBS signaling protocol waits for a confirmation at each network hop before sending the burst?",
+                options: [
+                    "Just In Time (JIT)",
+                    "Tell and Wait (TAW)",
+                    "Just Enough Time (JET)",
+                    "Delay-and-Reserve (DAR)"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 465,
+                question: "What is one downside of using a mixed timer/threshold-based burst assembly method?",
+                options: [
+                    "Reduced control over burst length",
+                    "Increased operational complexity",
+                    "Limited packet prioritization",
+                    "Higher wavelength usage"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 466,
+                question: "Which of the following is a common scheduling technique in OBS?",
+                options: [
+                    "Most-Used (MU)",
+                    "Least Delay Path",
+                    "First Fit (FF)",
+                    "Shortest Delay Path"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 467,
+                question: "Burst scheduling involves setting offset times and forwarding bursts to the OBS network.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 468,
+                question: "Which OBS signaling protocol is characterized by reserving just enough time for a burst to reach its destination?",
+                options: [
+                    "Just In Time (JIT)",
+                    "Just Enough Time (JET)",
+                    "Tell and Wait (TAW)",
+                    "Just-In-Case (JIC)"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 58
+            {
+                id: 469,
+                question: "The Tell and Wait (TAW) protocol requires the control packet to confirm each hop before the burst is sent.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 470,
+                question: "What is one of the primary challenges of switching at wavelength granularity in optical networks?",
+                options: [
+                    "Low data transmission speed",
+                    "Lack of an optical equivalent for RAM",
+                    "High operational complexity",
+                    "Limited wavelength channels"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 471,
+                question: "OBS aims to address shortcomings of Optical Circuit Switching (OCS) and Optical Packet Switching (OPS) by allowing bursts to pass through electronics at each routing decision.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 472,
+                question: "Which component is NOT part of the OBS burst assembly process?",
+                options: [
+                    "IP packet",
+                    "Fiber Delay Line",
+                    "Timer-based algorithm",
+                    "Threshold-based algorithm"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 473,
+                question: "In OBS, data packets from multiple sources are aggregated into bursts at the network's edge.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 474,
+                question: "A timer-based burst assembly method creates bursts based on:",
+                options: [
+                    "Packet count threshold",
+                    "Available bandwidth",
+                    "Time elapsed since last burst",
+                    "Packet size"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 475,
+                question: "Threshold-based burst assembly relies on a specific packet count before initiating a burst.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 476,
+                question: "Which of the following is a benefit of using a mixed timer/threshold-based burst assembly scheme?",
+                options: [
+                    "Reduces burst transmission time",
+                    "Ensures fixed burst size",
+                    "Balances delay control with burst length optimization",
+                    "Simplifies operational complexity"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 477,
+                question: "The mixed timer/threshold-based assembly method sacrifices delay control for operational simplicity.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            // Page 59
+            {
+                id: 478,
+                question: "What is one of the primary responsibilities of a burst scheduling algorithm in OBS?",
+                options: [
+                    "Assigning burst priorities",
+                    "Adjusting offset times for bursts",
+                    "Limiting burst length",
+                    "Converting packets to electronic signals"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 479,
+                question: "Latest Available Unused Channel (LAUC) is a common technique used for scheduling bursts.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 480,
+                question: "What is another name for the access network?",
+                options: [
+                    "The backbone network",
+                    "The core network",
+                    "The first-mile network",
+                    "The internet backbone"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 481,
+                question: "What do access networks connect?",
+                options: [
+                    "Servers to routers",
+                    "Service provider central offices (COs) to businesses and residential subscribers",
+                    "Routers to other routers",
+                    "Subscribers directly to the internet"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 482,
+                question: "Which of the following is NOT a term used to refer to access networks?",
+                options: [
+                    "Last-mile network",
+                    "Subscriber access network",
+                    "Local loop",
+                    "Core network"
+                ],
+                correctAnswer: 3,
+                category: "networks"
+            },
+            {
+                id: 483,
+                question: "What does CO stand for in the context of access networks?",
+                options: [
+                    "Company Office",
+                    "Central Offices",
+                    "Control Operator",
+                    "Communication Outpost"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 484,
+                question: "The access network is also known as the 'last-mile' network.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 485,
+                question: "Access networks connect subscribers directly to the internet backbone.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 486,
+                question: "COs connect businesses but not residential subscribers.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 487,
+                question: "The term 'local loop' is sometimes used to describe the access network.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 488,
+                question: "What are subscribers demanding in first-mile access solutions?",
+                options: [
+                    "Low bandwidth and high prices",
+                    "High bandwidth, media-rich Internet services, and comparable prices",
+                    "Basic text-based services and high prices",
+                    "Limited bandwidth and low prices"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            // Page 60
+            {
+                id: 489,
+                question: "What does LAN stand for in the context of corporate network demands?",
+                options: [
+                    "Local Area Node",
+                    "Large Area Network",
+                    "Local Area Network",
+                    "Land Access Network"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 490,
+                question: "Subscribers are looking for access solutions that are more expensive than existing networks.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 491,
+                question: "Corporate users want to connect their local-area networks (LANs) to the Internet backbone.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 492,
+                question: "What were DSL and CATV originally built for?",
+                options: [
+                    "Data transmission",
+                    "Carrying voice and analog TV signals, respectively",
+                    "Internet access",
+                    "Video conferencing"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 493,
+                question: "What is a limitation of DSL regarding distance?",
+                options: [
+                    "Subscribers must be within 180,000 feet of a central office",
+                    "There is no distance limitation",
+                    "Subscribers must be less than 18,000 feet from a central office",
+                    "Subscribers must be more than 18,000 feet from a central office"
+                ],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 494,
+                question: "What does CATV stand for in the context of access networks?",
+                options: [
+                    "Cable Access Television Video",
+                    "Community Antenna Television",
+                    "Cable Advanced Television View",
+                    "Common Access Television View"
+                ],
+                correctAnswer: 1,
+                category: "networks"
+            },
+            {
+                id: 495,
+                question: "DSL and CATV are optimal solutions for carrying data.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 496,
+                question: "DSL has a distance limitation due to signal distortions.",
+                options: ["True", "False"],
+                correctAnswer: 0,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 497,
+                question: "CATV was originally designed for data transmission.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 498,
+                question: "DSL subscribers can be located at any distance from a central office.",
+                options: ["True", "False"],
+                correctAnswer: 1,
+                category: "networks",
+                type: "truefalse"
+            },
+            {
+                id: 499,
+                question: "What is a variation of DSL that has been introduced in the last decade?",
+                options: ["ADSL", "SDSL", "VDSL (very high bit-rate DSL)", "IDSL"],
+                correctAnswer: 2,
+                category: "networks"
+            },
+            {
+                id: 500,
+                question: "What is the approximate downstream bandwidth supported by VDSL?",
+                options: ["10 Mbps", "25 Mbps", "50 Mbps", "100 Mbps"],
+                correctAnswer: 2,
+                category: "networks"
+            }
+        ];
+
+        // Quiz state
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let selectedCategories = ["all"];
+        let filteredQuestions = [];
 
         // DOM elements
-        const lectureBtns = document.querySelectorAll('.lecture-btn');
-        const quizContainer = document.getElementById('quiz-container');
+        const startScreen = document.getElementById('start-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultsScreen = document.getElementById('results-screen');
+        const startBtn = document.getElementById('start-btn');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
         const submitBtn = document.getElementById('submit-btn');
-        const resultsContainer = document.getElementById('results-container');
-        const scoreElement = document.getElementById('score');
-        const percentageElement = document.getElementById('percentage');
         const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
         const progressBar = document.getElementById('progress');
-        const timerElement = document.getElementById('timer');
+        const feedbackEl = document.getElementById('feedback');
+        const finalScoreEl = document.getElementById('final-score');
+        const correctCountEl = document.getElementById('correct-count');
+        const incorrectCountEl = document.getElementById('incorrect-count');
+        const categoryBtns = document.querySelectorAll('.category-btn');
 
-        // Initialize the app
-        function init() {
-            // Set up lecture selection
-            lectureBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const lecture = btn.getAttribute('data-lecture');
-                    selectLecture(lecture);
-                });
-            });
+        // Event listeners
+        startBtn.addEventListener('click', startQuiz);
+        prevBtn.addEventListener('click', showPreviousQuestion);
+        nextBtn.addEventListener('click', showNextQuestion);
+        submitBtn.addEventListener('click', submitAnswer);
+        restartBtn.addEventListener('click', restartQuiz);
+        reviewBtn.addEventListener('click', reviewAnswers);
 
-            // Set up navigation
-            prevBtn.addEventListener('click', showPreviousQuestion);
-            nextBtn.addEventListener('click', showNextQuestion);
-            submitBtn.addEventListener('click', submitQuiz);
-            restartBtn.addEventListener('click', restartQuiz);
-
-            // Load the first lecture
-            selectLecture(currentLecture);
-        }
-
-        // Select a lecture
-        function selectLecture(lecture) {
-            // Update active button
-            lectureBtns.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-lecture') === lecture) {
-                    btn.classList.add('active');
+        // Category selection
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+                
+                if (category === 'all') {
+                    // Toggle all categories
+                    if (selectedCategories.includes('all')) {
+                        selectedCategories = [];
+                        btn.classList.remove('active');
+                    } else {
+                        selectedCategories = ['all'];
+                        categoryBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                    }
+                } else {
+                    // Toggle specific category
+                    if (selectedCategories.includes('all')) {
+                        selectedCategories = [category];
+                        categoryBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                    } else {
+                        if (selectedCategories.includes(category)) {
+                            selectedCategories = selectedCategories.filter(c => c !== category);
+                            btn.classList.remove('active');
+                            
+                            // If no categories selected, select 'all'
+                            if (selectedCategories.length === 0) {
+                                selectedCategories = ['all'];
+                                document.querySelector('.category-btn[data-category="all"]').classList.add('active');
+                            }
+                        } else {
+                            selectedCategories.push(category);
+                            btn.classList.add('active');
+                        }
+                    }
                 }
             });
+        });
 
-            // Update current lecture
-            currentLecture = lecture;
-            currentQuestion = 0;
-            userAnswers = {};
-            quizStarted = false;
+        // Initialize the quiz
+        function initQuiz() {
+            // Filter questions based on selected categories
+            if (selectedCategories.includes('all')) {
+                filteredQuestions = [...quizData];
+            } else {
+                filteredQuestions = quizData.filter(question => 
+                    selectedCategories.includes(question.category)
+                );
+            }
             
-            // Reset timer
-            clearInterval(timerInterval);
-            timeElapsed = 0;
-            updateTimer();
+            // Shuffle questions for variety
+            filteredQuestions = shuffleArray(filteredQuestions);
             
-            // Show quiz questions
+            // Reset quiz state
+            currentQuestionIndex = 0;
+            userAnswers = new Array(filteredQuestions.length).fill(null);
+            
+            // Update UI
+            totalQuestionsEl.textContent = filteredQuestions.length;
+            updateProgressBar();
             showQuestion();
-            
-            // Hide results
-            resultsContainer.style.display = 'none';
-            quizContainer.style.display = 'block';
-            
-            // Update navigation buttons
-            updateNavigation();
+        }
+
+        // Start the quiz
+        function startQuiz() {
+            startScreen.classList.add('hidden');
+            quizScreen.classList.remove('hidden');
+            initQuiz();
         }
 
         // Show current question
         function showQuestion() {
-            const questions = quizData[currentLecture];
-            if (!questions || questions.length === 0) {
-                quizContainer.innerHTML = '<p>No questions available for this lecture.</p>';
+            if (currentQuestionIndex >= filteredQuestions.length) {
+                showResults();
                 return;
             }
-
-            const question = questions[currentQuestion];
-            let optionsHTML = '';
-
-            question.options.forEach((option, index) => {
-                const isSelected = userAnswers[currentQuestion] === index;
-                optionsHTML += `
-                    <div class="option ${isSelected ? 'selected' : ''}" data-index="${index}">
-                        ${option}
-                    </div>
-                `;
-            });
-
-            quizContainer.innerHTML = `
-                <div class="question-container">
-                    <div class="question-number">Question ${currentQuestion + 1} of ${questions.length}</div>
-                    <div class="question-text">${question.question}</div>
-                    <div class="options-container">
-                        ${optionsHTML}
-                    </div>
-                </div>
-            `;
-
-            // Add event listeners to options
-            const options = quizContainer.querySelectorAll('.option');
-            options.forEach(option => {
-                option.addEventListener('click', () => {
-                    selectOption(parseInt(option.getAttribute('data-index')));
-                });
-            });
-
-            // Update progress bar
-            progressBar.style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
             
-            // Start timer if this is the first question
-            if (!quizStarted) {
-                quizStarted = true;
-                startTimer();
+            const question = filteredQuestions[currentQuestionIndex];
+            questionText.textContent = question.question;
+            currentQuestionEl.textContent = currentQuestionIndex + 1;
+            
+            // Clear previous options
+            optionsContainer.innerHTML = '';
+            
+            // Create new options
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = option;
+                optionElement.dataset.index = index;
+                
+                // Check if this option was previously selected
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionElement.classList.add('selected');
+                }
+                
+                optionElement.addEventListener('click', selectOption);
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestionIndex === 0;
+            nextBtn.disabled = currentQuestionIndex === filteredQuestions.length - 1;
+            
+            // Show/hide submit button
+            if (currentQuestionIndex === filteredQuestions.length - 1) {
+                submitBtn.classList.remove('hidden');
+                nextBtn.classList.add('hidden');
+            } else {
+                submitBtn.classList.add('hidden');
+                nextBtn.classList.remove('hidden');
             }
+            
+            // Hide feedback
+            feedbackEl.classList.add('hidden');
         }
 
         // Select an option
-        function selectOption(index) {
-            userAnswers[currentQuestion] = index;
+        function selectOption(e) {
+            const selectedOption = e.currentTarget;
+            const optionIndex = parseInt(selectedOption.dataset.index);
             
-            // Update UI
-            const options = quizContainer.querySelectorAll('.option');
-            options.forEach(option => {
+            // Remove selected class from all options
+            document.querySelectorAll('.option').forEach(option => {
                 option.classList.remove('selected');
-                if (parseInt(option.getAttribute('data-index')) === index) {
-                    option.classList.add('selected');
-                }
             });
             
-            // Enable next button if not on last question
-            if (currentQuestion < quizData[currentLecture].length - 1) {
-                nextBtn.disabled = false;
-            } else {
-                submitBtn.disabled = false;
-            }
+            // Add selected class to clicked option
+            selectedOption.classList.add('selected');
+            
+            // Store user's answer
+            userAnswers[currentQuestionIndex] = optionIndex;
         }
 
         // Show previous question
         function showPreviousQuestion() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
                 showQuestion();
-                updateNavigation();
             }
         }
 
         // Show next question
         function showNextQuestion() {
-            const questions = quizData[currentLecture];
-            if (currentQuestion < questions.length - 1) {
-                currentQuestion++;
+            if (currentQuestionIndex < filteredQuestions.length - 1) {
+                currentQuestionIndex++;
                 showQuestion();
-                updateNavigation();
             }
         }
 
-        // Update navigation buttons
-        function updateNavigation() {
-            const questions = quizData[currentLecture];
+        // Submit answer and show feedback
+        function submitAnswer() {
+            const question = filteredQuestions[currentQuestionIndex];
+            const selectedOptionIndex = userAnswers[currentQuestionIndex];
             
-            // Previous button
-            prevBtn.disabled = currentQuestion === 0;
-            
-            // Next button
-            if (currentQuestion < questions.length - 1) {
-                nextBtn.disabled = userAnswers[currentQuestion] === undefined;
-            } else {
-                nextBtn.disabled = true;
+            if (selectedOptionIndex === null) {
+                alert('Please select an answer before submitting.');
+                return;
             }
             
-            // Submit button
-            submitBtn.disabled = !allQuestionsAnswered();
-        }
-
-        // Check if all questions are answered
-        function allQuestionsAnswered() {
-            const questions = quizData[currentLecture];
-            for (let i = 0; i < questions.length; i++) {
-                if (userAnswers[i] === undefined) {
-                    return false;
+            // Show feedback
+            const isCorrect = selectedOptionIndex === question.correctAnswer;
+            const feedbackClass = isCorrect ? 'correct' : 'incorrect';
+            const feedbackText = isCorrect 
+                ? 'Correct! Well done.' 
+                : `Incorrect. The correct answer is: ${question.options[question.correctAnswer]}`;
+            
+            feedbackEl.className = `feedback ${feedbackClass}`;
+            feedbackEl.innerHTML = `
+                <strong>${isCorrect ? 'Correct!' : 'Incorrect'}</strong>
+                <p>${feedbackText}</p>
+            `;
+            feedbackEl.classList.remove('hidden');
+            
+            // Highlight correct and incorrect answers
+            document.querySelectorAll('.option').forEach((option, index) => {
+                if (index === question.correctAnswer) {
+                    option.classList.add('correct');
+                } else if (index === selectedOptionIndex && !isCorrect) {
+                    option.classList.add('incorrect');
                 }
-            }
-            return true;
-        }
-
-        // Start the timer
-        function startTimer() {
-            timerInterval = setInterval(() => {
-                timeElapsed++;
-                updateTimer();
-            }, 1000);
-        }
-
-        // Update timer display
-        function updateTimer() {
-            const minutes = Math.floor(timeElapsed / 60);
-            const seconds = timeElapsed % 60;
-            timerElement.textContent = `Time: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        // Submit the quiz
-        function submitQuiz() {
-            clearInterval(timerInterval);
+            });
             
-            const questions = quizData[currentLecture];
-            let score = 0;
+            // Disable further selection
+            document.querySelectorAll('.option').forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            // Update progress bar
+            updateProgressBar();
+            
+            // Auto-advance after a delay if not the last question
+            if (currentQuestionIndex < filteredQuestions.length - 1) {
+                setTimeout(() => {
+                    currentQuestionIndex++;
+                    showQuestion();
+                }, 2000);
+            } else {
+                setTimeout(showResults, 2000);
+            }
+        }
+
+        // Show quiz results
+        function showResults() {
+            quizScreen.classList.add('hidden');
+            resultsScreen.classList.remove('hidden');
             
             // Calculate score
-            for (let i = 0; i < questions.length; i++) {
-                if (userAnswers[i] === questions[i].answer) {
-                    score++;
+            let correctCount = 0;
+            filteredQuestions.forEach((question, index) => {
+                if (userAnswers[index] === question.correctAnswer) {
+                    correctCount++;
                 }
-            }
+            });
             
-            // Display results
-            const percentage = Math.round((score / questions.length) * 100);
-            scoreElement.textContent = `${score}/${questions.length}`;
-            percentageElement.textContent = `${percentage}%`;
+            const score = Math.round((correctCount / filteredQuestions.length) * 100);
             
-            // Hide quiz and show results
-            quizContainer.style.display = 'none';
-            resultsContainer.style.display = 'block';
+            // Update results UI
+            finalScoreEl.textContent = `${score}%`;
+            correctCountEl.textContent = correctCount;
+            incorrectCountEl.textContent = filteredQuestions.length - correctCount;
         }
 
-        // Restart the quiz
+        // Restart quiz
         function restartQuiz() {
-            currentQuestion = 0;
-            userAnswers = {};
-            quizStarted = false;
-            
-            // Reset timer
-            clearInterval(timerInterval);
-            timeElapsed = 0;
-            updateTimer();
-            
-            // Show quiz questions
-            showQuestion();
-            
-            // Hide results
-            resultsContainer.style.display = 'none';
-            quizContainer.style.display = 'block';
-            
-            // Update navigation buttons
-            updateNavigation();
+            resultsScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
         }
 
-        // Initialize the app when the DOM is loaded
-        document.addEventListener('DOMContentLoaded', init);
+        // Review answers (placeholder - could be expanded)
+        function reviewAnswers() {
+            alert('Review feature would show each question with your answer and the correct answer.');
+            // This could be expanded to show a detailed review of all questions
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestionIndex + 1) / filteredQuestions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Utility function to shuffle array
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
